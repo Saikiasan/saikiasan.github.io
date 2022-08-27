@@ -1,0 +1,63 @@
+:root {
+    /* COLOR LIBRARY - 09|AUG|2022 */
+    --color-1: #46A094;
+    --color-2: #6BBD99;
+    --color-3: #AECFA4;
+    --color-4: #C4E8C2;
+
+    --color-5: #6A66A3;
+    --color-6: #95D7AE;
+    --color-7: #F4C600;
+    --color-8: #F9D6C8;
+    --color-9: #EB6534;
+
+    --z1: #BECAFE;
+    --z2: #4B57FE;
+    --z3: #AE2EDA;
+    --z4: #EE7D84;
+
+    --z5: #00195E;
+    --z6: #F82D4B;
+    --z7: #FEE2E9;
+    --z8: #0054AB;
+    --z9: #DEF3FE;
+    
+    --z10: #070139;
+    --z11: #CF4A00;
+    --z12: #FFD333;
+    --z13: #7426EF;
+
+    --z14: #000000;
+    --z15: #263EEA;
+    --z16: #F2B6AF;
+    --z17: #E35040;
+    --z18: #9579F0;
+
+    --z19: #A30FFE;
+    --z20: #F896FD;
+    --z21: #F2FD1C;
+    --z22: #FFFDFF;
+
+    /* NAMED COLORS */
+    --white: #fff;
+    --black: var(--z14);
+    --green-1: rgb(4, 172, 4);
+
+    /* GRADIENTS */
+    --a_lost_memory: linear-gradient(#DF5A72, #FFAE8B);
+    --shades_of_grey: linear-gradient(#BDC3C7, #445463);
+    --enchantment: linear-gradient(#40D8AB, #35A8E1);
+    --megatron: linear-gradient(#C7FED8, #FBD686, #F9AE82);
+    --ultra_violet: linear-gradient(#595FD1, #878CF4);
+    --emerald: linear-gradient(#AD8CEA, #50DFB2);
+
+    /* ENTICING CSS GRADIENTS */
+    --enchantment-1: linear-gradient(#9896F0, #FBC8D5);
+    --saint_petersburg: linear-gradient(#71C5EE, #025091);
+    --lemon_high: linear-gradient(#FBEE97, #ADEDD5);
+    --azure: linear-gradient(#FF7082, #C0E9FF);
+    --racoon_black: linear-gradient(#BCC5CE, #939FAE);
+    --gold_dust: linear-gradient(#FDFCFB, #E3D2C4);
+    --mole_hall: linear-gradient(#626262, #9BC5C3);
+    --confident_cloud: linear-gradient(#DBD5ED, #F3E7EA);
+}

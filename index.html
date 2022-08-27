@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>A Simple Portfolio of Ankit Saikia - 2022</title>
+    <meta name="description" content="Portfolio of Ankit Saikia | A portfolio page written by Ankit Saikia." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#000" />
+    <!-- REQUIRES ICON -->
+
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" href="./bootstrap-5.2.0-dist/css/bootstrap.min.css">
+
+    <!-- Icons Css -->
+    <link rel="stylesheet" href="./css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/ionicons/css/ionicons.min.css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="./css/style.sheet.min.1.css">
+
+    <!-- Animations Css -->
+    <link rel="stylesheet" href="./css/magic-master/dist/magic.min.css">
+    <link rel="stylesheet" href="./css/animate.git.css">
+
+    <style>
+
+        html {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+        }
+
+        /* Preloader */
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            overflow: hidden;
+            background: #000;
+            filter: brightness(2);
+        }
+
+        #preloader:before {
+            content: "";
+            position: fixed;
+            top: calc(50% - 30px);
+            left: calc(50% - 30px);
+            border: 6px solid transparent;
+            border-top: 6px solid #00a52f;
+            /* border-bottom: 6px solid #00a548; */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: animate-preloader 1s linear infinite;
+            animation: animate-preloader 1s linear infinite;
+        }
+
+        @-webkit-keyframes animate-preloader {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes animate-preloader {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+</head>
+
+<!-- ADD BG-DARK FOR DARK THEME and BG-BLACK FOR EXTREME DARK/ absolute dark theme -->
+
+<body class="bg-black" id="page-top">
+  <!-- MAIN CONTENT START -->
+  <div class="w-100 pt-1 m-0" nav-n0>
+      <ul class="lang-list-items d-flex flex-row px-2 py-0 my-0 overflow-scroll fw-bold">
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">C</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">C++</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">Java</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">HTML</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">CSS</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">JS</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">React</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">Android</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">C#</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">Python</a></li>
+          <li class="lang-list-link text-center text-uppercase px-1 mx-2"><a href="">PHP</a></li>
+      </ul>
+  </div>
+    <!--/ Nav Star /-->
+ <nav class="navbar navbar-b navbar-expand-md fixed-top visually-hidden animate__animated animate__fast" id="mainNav">
+   <div class="container">
+     <a class="navbar-brand js-scroll" href="#page-top">Portfolio</a>
+     <button class="btn navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
+       aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+       <span></span>
+       <span></span>
+       <span></span>
+     </button>
+     <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
+       <ul class="navbar-nav">
+         <li class="nav-item">
+           <a class="nav-link js-scroll active" href="#info_about">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link js-scroll" href="#about">About</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link js-scroll" href="#service">Services</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link js-scroll" href="#work">Work</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link js-scroll" href="#blog">Blog</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link js-scroll" href="#contact">Contact</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+ <!--/ Nav End /-->
+
+    <div class="main-content">
+        <!-- About myself start -->
+        <section class="info-about" id="info_about">
+            <div class="container">
+                <div class="row d-grid justify-content-center">
+                    <div class="bg-profile animate"></div>
+                    <div class="container mt-5">
+                        <div class="image-p1 mt-5">
+                            <!-------------------- PROFILE IMAGE METHOD-1: IMG | METHOD-2: CSS BACKGROUND-IMG ------------------------>
+                            <div class="rounded-circle shadow-lg" loading="lazy" bPic></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="intro-content display-table mt-4">
+                <div class="table-cell">
+                    <div class="container text-center">
+                        <h1 class="intro-title mb-4 text-light">I am Ankit Saikia</h1>
+                        <p class="intro-subtitle"><span class="text-slider-items visually-hidden">Web Developer,Web Designer,Frontend Developer,UI - UX Designer,Video Editor,Graphics Designer,Software Developer,Blogger,YouTuber,Social Code Influencer,Digital Artist</span><strong class="text-slider fw-light fs-1" style="color: var(--green-1)"></strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About myself end -->
+
+        <!-- about start -->
+        <section id="about" class="about-mf sect-pt4 route mt-5 bg-white">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="box-shadow-full">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="row">
+                          <div class="col-sm-6 col-md-5">
+                            <div class="about-img animate">
+                              <img src="./wi1.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-md-7 my-5">
+                            <div class="about-info p-2 shadow-lg">
+                              <p><span class="title-s">Name: </span> <span>Ankit Saikia</span></p>
+                              <p><span class="title-s">Profile: </span> <span>full stack developer</span></p>
+                              <p><span class="title-s">Email: </span> <span>ankitsaikia19@gmail.com</span></p>
+                              <p><span class="title-s">Phone: </span> <span>(91) 882 2494 773</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="skill-mf">
+                          <p class="title-s">Skill</p>
+                          <span>HTML</span> <span class="pull-right">80%</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
+                              aria-valuemax="100"></div>
+                          </div>
+                          <span>CSS</span> <span class="pull-right">90%</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                              aria-valuemax="100"></div>
+                          </div>
+                          <span>PHP</span> <span class="pull-right">0%</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0"
+                              aria-valuemax="100"></div>
+                          </div>
+                          <span>JAVASCRIPT</span> <span class="pull-right">40%</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                              aria-valuemax="100"></div>
+                          </div>
+                          <span>C</span> <span class="pull-right">30%</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0"
+                              aria-valuemax="100"></div>
+                          </div>
+                          <span>C++</span> <span class="pull-right">40%</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                              aria-valuemax="100"></div>
+                          </div>
+                          <span>React</span> <span class="pull-right">40%</span>
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                              aria-valuemax="100"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 shadow">
+                        <div class="about-me pt-4 pt-md-0 mx-2 mb-4 border border-5 border-dark px-4">
+                          <div class="title-box-2">
+                            <h5 class="title-left">
+                              About me
+                            </h5>
+                          </div>
+                          <p class="lead">
+                            I am still learning all sorts of languages and developing my programmer skills. There is a long way to go,
+                            learning new things from my day to day life, I feel the changes taking place within.
+                          </p>
+                          <p class="lead">
+                            I have graduated from many prestigious institutions and have accumulated many years of experience as a computer programmer.
+                            I did not have the chance to learn things from an early age hance not growing exponentially fast compared to other programmers.
+                            But as they say, you can achieve your dreams by working hard and being diligent.
+                          </p>
+                          <p class="lead">
+                            I can at least provide you with a good decent webpage and web services. Contact me if you feel like hiring me.
+                            There are details on my work done till date. I specially like the work related to web development.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        <section class="work route services-mf" id="service">
+          <div class="section-counter paralax-mf bg-image py-5" style="background-image: var(--enchantment-1) !important">
+            <div class="overlay-mf"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-3 col-lg-3">
+                  <div class="counter-box">
+                    <div class="counter-ico">
+                      <span class="ico-circle"><i class="ion-checkmark-round"></i></span>
+                    </div>
+                    <div class="counter-num">
+                      <p class="counter">10</p>
+                      <span class="counter-text">WORKS COMPLETED</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-lg-3">
+                  <div class="counter-box pt-4 pt-md-0">
+                    <div class="counter-ico">
+                      <span class="ico-circle"><i class="ion-ios-calendar-outline"></i></span>
+                    </div>
+                    <div class="counter-num">
+                      <p class="counter">3</p>
+                      <span class="counter-text">YEARS OF EXPERIENCE</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-lg-3">
+                  <div class="counter-box pt-4 pt-md-0">
+                    <div class="counter-ico">
+                      <span class="ico-circle"><i class="ion-ios-people"></i></span>
+                    </div>
+                    <div class="counter-num">
+                      <p class="counter">30</p>
+                      <span class="counter-text">TOTAL CLIENTS</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 col-lg-3">
+                  <div class="counter-box pt-4 pt-md-0">
+                    <div class="counter-ico">
+                      <span class="ico-circle"><i class="ion-social-github"></i></span>
+                    </div>
+                    <div class="counter-num">
+                      <p class="counter">10</p>
+                      <span class="counter-text">GITHUB REPOS</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    </div>
+    <!-- MAIN CONTENT END -->
+
+    <a href="#" class="back-to-top animate__animated animate__fast"><i class="fa fa-chevron-up"></i></a>
+    <div id="preloader"></div>
+
+
+    <script src="./js/fullscreen/api.lvl.1.js" defer></script>
+    <script src="./js/fullscreen/script.v1.js" defer></script>
+
+    <script src="./js/jquery/jquery.min.js"></script>
+    <script src="./js/jquery/jquery-migrate.min.js"></script>
+    <script src="./js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/easing/easing.min.js"></script>
+    <script src="./js/counterup/jquery.waypoints.min.js"></script>
+    <script src="./js/counterup/jquery.counterup.js"></script>
+    <script src="./js/typed/typed.min.js"></script>
+
+    <script src="./js/typed.js"></script>
+</body>
+
+</html>
