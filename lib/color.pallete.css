@@ -1,4 +1,12 @@
 :root {
+
+    --b0: #000;
+    --b1: #000;
+    --b2: #222;
+
+    --w0: #fff;
+    --w1: #868686;
+    
     /* COLOR LIBRARY - 09|AUG|2022 */
     --color-1: #46A094;
     --color-2: #6BBD99;
@@ -60,4 +68,7 @@
     --gold_dust: linear-gradient(#FDFCFB, #E3D2C4);
     --mole_hall: linear-gradient(#626262, #9BC5C3);
     --confident_cloud: linear-gradient(#DBD5ED, #F3E7EA);
+
+    --nav-link-color: #189ae4;
+    --nav-link-color-2: #e1f503;
 }

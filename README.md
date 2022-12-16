@@ -1,15 +1,17 @@
 # I am **Ankit Saikia**
 This is my first repository.
-I have created this repository to learn about Github.
-The repository is created using Github Pages.
+I have created this repository to learn about GitHub.
+The repository is created using GitHub Pages.
 
-## Softwares and Tools used
-Simply put, I have used the following softwares and tools to create this repository.
-- [Github](https://github.com)
+## Bootstrap CSS CDN : [<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">]
+
+## Software and Tools used
+Simply put, I have used the following software and tools to create this repository.
+- [GitHub](https://github.com)
 - [Bootstrap](https://getbootstrap.com)
 - [Animate.css](https://daneden.github.io/animate.css/)
 - [Magic-master.css](https://www.minimamente.com/project/magic/)
-- [Github Pages](https://pages.github.com/)
+- [GitHub Pages](https://pages.github.com/)
 - [jQuery](https://jquery.com/)
 - [Font Awesome](https://fontawesome.com/)
 - [Bootstrap Studio](https://bootstrapstudio.io/)
@@ -24,12 +26,12 @@ The following languages are used in this repository.
 - [Markdown](https://en.wikipedia.org/wiki/Markdown)
 
 ## Links
-- Github
+- GitHub
 - Twitter
 - Facebook
-- Pintrest
+- Pinterest
 - Instagram
-- Linkedin
+- LinkedIn
 
 ## Contact
 - Email: ankitsaikia19@gmail.com
