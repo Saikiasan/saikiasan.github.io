@@ -16,15 +16,26 @@
     * {
       border: none;
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    ::selection {
+      background: var(--neon);
+      color: var(--black);
     }
     body {
       background: var(--black);
       color: var(--white);
     }
+    table {
+      border: 1px var(--white) solid;
+      border-collapse: collapse;
+    }
     table thead tr{
       border: 1px var(--white) solid;
+      font-size: 24px;
     }
-    thead td, thead th {
+    thead th {
       color: var(--white);
       text-align: center;
     }
@@ -35,17 +46,20 @@
     table tbody tr td:nth-child(1) {
       color: var(--white)
     }
+    table tbody tr td:nth-child(3) {
+      border-left: 1px var(--white) solid;
+    }
   </style>
 </head>
 <body>
   <div class="main">
     <div class="container p-2">
       <div class="row">
-        <h1 class="text-center">Program <span>vs</span> Process</h1>
+        <h1 class="text-center my-4">Program <span style="color: red;font-size: 16px;">VS</span> Process</h1>
         <table class="table">
           <thead>
             <tr>
-              <td>Sl No.</td>
+              <th></th>
               <th>Programs</th>
               <th>Processes</th>
             </tr>
@@ -57,9 +71,29 @@
               <td>It is an instance of an executing program.</td>
             </tr>
             <tr>
-              <td>3</td>
+              <td>2</td>
               <td>It is a passive entity as it resides in the secondary memory.</td>
               <td>It is an active entity as it is created during execution and loaded into the main memory.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>It exits at a single phase and continues to exist until it is deleted.</td>
+              <td>It exists for a limited span of time as it gets terminated after the completion of the task.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>A program is a static entity</td>
+              <td>A process is a dynamic entity</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>It dosen't have any control block.</td>
+              <td>Has its own control block called Process Control Block (PCB)</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Has two logical components: <span>code</span> and data.</td>
+              <td>In addition to program data, process also requires additional information required for the management and execution.</td>
             </tr>
           </tbody>
         </table>
