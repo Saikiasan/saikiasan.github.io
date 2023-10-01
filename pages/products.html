@@ -1,0 +1,77 @@
+<style>
+  @font-face {
+    font-family: Avalon;
+    src: url(../fonts/FontsFree-Net-Avalon.ttf);
+  }
+
+  @font-face {
+    font-family: fa;
+    src: url(../font-awesome/fonts/fontawesome-webfont.ttf);
+  }
+
+  .container-fluid.products img {
+    --size: 350px;
+    height: var(--size);
+    width: var(--size);
+  }
+
+  .container-fluid.products .col {
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .container-fluid.products .col .label {
+    position: absolute;
+    top: 2px;
+    margin: 0 2rem 0 2rem;
+    color: #01010183;
+    font-size: 2em;
+    font-weight: 500;
+    font-family: Avalon;
+    font-style: italic;
+  }
+
+  .container-fluid.products .col .price::before {
+    content: "\f156";
+    font-family: fa;
+    margin-right: 2px;
+    font-weight: 400;
+  }
+
+  .container-fluid.products .col .price {
+    position: absolute;
+    bottom: 1rem;
+    right: 2rem;
+    color: #d59111;
+    font-weight: 800;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 8px;
+  }
+</style>
+<div class="container-fluid products">
+  <div class="row justify-content-evenly gap-2">
+    <div class="col">
+      <div class="label">Title</div>
+      <div class="price">290</div>
+      <a href="#">
+        <img src="../assets/img/00521_2.jpg" alt="">
+      </a>
+    </div>
+    <div class="col">
+      <img src="../assets/img/00521_2.jpg" alt="">
+    </div>
+    <div class="col">
+      <img src="../assets/img/00521_2.jpg" alt="">
+    </div>
+    <div class="col">
+      <img src="../assets/img/00521_2.jpg" alt="">
+    </div>
+    <div class="col">
+      <img src="../assets/img/00521_2.jpg" alt="">
+    </div>
+    <div class="col">
+      <img src="../assets/img/00521_2.jpg" alt="">
+    </div>
+  </div>
+</div>
