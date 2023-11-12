@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /master/
+Disallow: /pages/
+Sitemap: https://saikiasan.github.io/sitemap.xml

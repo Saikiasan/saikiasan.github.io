@@ -5,7 +5,7 @@ let navbarContent = [{
   },
   {
     rel: 'Products',
-    link: '?page=products',
+    link: 'products',
     icon: 'books'
   }
 ];
@@ -34,7 +34,7 @@ export const navbar = () => {
 
   navbarContent.forEach(function (item) {
     const navItem = $('<li>').addClass('nav-item');
-    const navLink = $('<a>').addClass('nav-link').attr('href', item.link).text(item.rel);
+    const navLink = $('<a>').addClass('nav-link').attr({'href':'#','data-page':item.link,'onClick':`url(${item.link})`}).text(item.rel);
     navItem.append(navLink);
     navbarNav.append(navItem);
   });
@@ -70,26 +70,28 @@ export const themeSwitch = () => {
 
 }
 
-export const urls = () => {
-  const urlParams = new URLSearchParams(window.location.search)
-  const page = urlParams.get('page') || 'home'
+// LAST UPDATE ON 19-10-2023
+export const urls = (activePage) => {
+  // THE URL PARAM WINDOW SEARCH WILL NO LONGER BE USED
+  // const urlParams = new URLSearchParams(window.location.search)
+  const page = activePage || 'home'
   if (page) {
-    var targetNavLink = $(`.nav-link[href="?page=${page}"]`);
+    var targetNavLink = $(`.nav-link[href="?page=${page}"]`)
     if (targetNavLink.length === 0) {
-      targetNavLink = $('.nav-link[href="/"]');
+      targetNavLink = $('.nav-link[href="/"]')
     }
-    targetNavLink.addClass('active');
+    targetNavLink.addClass('active')
     
     const filePath = 'pages/' + page + '.html'
-    $('title').text('SAIKIACODES - ' + page.toUpperCase())
+    $('title').text('SAIKIACODES - ' + page.charAt(0).toUpperCase() + page.slice(1))
     $.ajax({
       url: filePath,
       dataType: 'html',
       success: function (content) {
-        $('main.main').html(content);
+        $('main.main').html(content)
       },
       error: function (status, error) {
-        console.error('Error loading content:', error, status);
+        console.error('Error loading content:', error, status)
       }
     })
   } else {

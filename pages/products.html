@@ -48,10 +48,21 @@
     padding: 10px;
     border-radius: 8px;
   }
+
+  span.new::before {
+    content: "\f10c";
+    font-family: fa;
+    color: #ff0000;
+    font-size: 1.5em;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
 </style>
 <div class="container-fluid products">
   <div class="row justify-content-evenly gap-2">
     <div class="col">
+      <span class="new"></span>
       <div class="label">Title</div>
       <div class="price">290</div>
       <a href="#">
