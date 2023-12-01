@@ -1,2 +1,3 @@
-master/*
-test/
+TESTS/
+data/gen/
+data/pages/
