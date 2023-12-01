@@ -1,0 +1,33 @@
+{
+  "name": "Atomy Assam Catalog",
+  "short_name": "Atomy Assam",
+  "description": "Discover and explore Atomy products and contributions in Assam.",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "data/assets/favicon_io/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "data/assets/favicon_io/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#68cdf0",
+  "orientation": "any",
+  "lang": "en",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "permissions": [],
+  "serviceworker": {
+    "src": "/service-worker.js",
+    "scope": "/",
+    "update_via_cache": "none"
+  },
+  "splash_pages": null
+}

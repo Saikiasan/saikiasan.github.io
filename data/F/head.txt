@@ -1,0 +1,127 @@
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.atomykeson.online/">
+  <meta property="og:title" content="Atomy Keson - Atomy agent">
+  <meta property="og:description"
+    content="Atomy products information: Distributor Price | Distributor Points | MRP & other information related to Global Atomy (a Korea-based product brand)">
+  <meta property="og:image" content="https://www.atomykeson.online/data/assets/logo/white.png">
+  <meta property="og:image:alt" content="Atomy Keson Logo">
+  <meta property="og:site_name" content="Atomy Keson">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.atomykeson.online/">
+  <meta name="twitter:title" content="Atomy Keson - Atomy agent">
+  <meta name="twitter:description"
+    content="Atomy products information: Distributor Price | Distributor Points | MRP & other information related to Global Atomy (a Korea-based product brand)">
+  <meta name="twitter:image" content="https://www.atomykeson.online/data/assets/logo/white.png">
+
+
+<style>
+    @font-face {
+      font-family: Avalon;
+      src: url(../data/assets/fonts/FontsFree-Net-Avalon.ttf);
+    }
+
+    @font-face {
+      font-family: BebasNeue;
+      src: url(../data/assets/fonts/BebasNeue-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: BebasNeueBold;
+      src: url(../data/assets/fonts/BebasNeue-Bold.ttf);
+    }
+
+    @font-face {
+      font-family: CodePro;
+      src: url(../data/assets/fonts/CodePro-Trial-LightLC.ttf);
+    }
+
+    @font-face {
+      font-family: Intro;
+      src: url(../data/assets/fonts/IntroCd-Trial-BkInl.ttf);
+    }
+
+    @font-face {
+      font-family: Archive;
+      src: url(../data/assets/fonts/Archive-Regular.ttf);
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card-title {
+      font-family: Archive;
+    }
+
+    .navbar-brand {
+      font-family: Avalon;
+    }
+
+    .preloader,
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .preloader .logo,
+    .loader span {
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      width: 200px;
+      height: 100px;
+    }
+
+    .loader {
+      background: #ffffff;
+      z-index: 2000;
+      transition: all .5s ease-in-out;
+    }
+
+    .loader span::before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+      border: 8px solid transparent;
+      border-top: 8px solid #0dc4e8;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>

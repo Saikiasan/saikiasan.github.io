@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://saikiasan.github.io/</loc>
-    <lastmod>2023-11-12</lastmod>
-  </url>
+
+    <url>
+        <loc>about</loc>
+        <lastmod>2023-12-02T01:04:20+05:30</lastmod>
+    </url>
+    
+
+    <url>
+        <loc>home</loc>
+        <lastmod>2023-12-02T01:04:20+05:30</lastmod>
+    </url>
+    
+
+    <url>
+        <loc>products</loc>
+        <lastmod>2023-12-02T01:04:20+05:30</lastmod>
+    </url>
+    
 </urlset>
