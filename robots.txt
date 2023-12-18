@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /master/
-Disallow: /pages/
-Disallow: /assets/
 Sitemap: https://saikiasan.github.io/sitemap.xml
