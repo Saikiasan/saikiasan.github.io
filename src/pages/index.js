@@ -1,128 +1,126 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
+import * as style from "../styles/home.module.css"
+import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
-
-const links = [
+const skills = [
   {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
+    n: "web development",
+    d: "89%",
   },
   {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
+    n: "app development",
+    d: "5+",
   },
   {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
+    n: "data analysis",
+    d: "70%",
   },
   {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
+    n: "machine learning",
+    d: "65%",
+  },
+  {
+    n: "cyber security",
+    d: "80%",
   },
 ]
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
-
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
-
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
-
-const IndexPage = () => (
-  <Layout>
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
-    </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
+const BannerSkills = () => {
+  return (
+    <div className={style.bannerSkillCards}>
+      {/* <div className=""> */}
+      {skills.map((skill, index) => (
+        <div className={`card ${style.skillCard}`}>
+          <div className={`card-body ${style.body}`}>
+            <span className={style.bannerSkillData}>{skill.d}</span>
+            <span className={style.bannerSkillName}>{skill.n}</span>
+          </div>
+        </div>
       ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
+      <div className="card">
+        <div className={`card-body ${style.bannerKnowMoreCardBody}`}>
+          <i className={`bi bi-arrow-up-right ${style.bannerKnowMoreIcon}`}></i>
+          <span className={style.bannerKnowMoreLink}>know more</span>
+        </div>
+      </div>
+    </div>
+    // </div>
+  )
+}
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
+const IndexPage = ({ data }) => {
+  const image = getImage(data.file.childImageSharp)
+  return (
+    <Layout>
+      <div className="container-fluid">
+        <div className={style.section1}>
+          <div className={`card ${style.banner}`}>
+            <div className="card-body">
+              <h1 className={style.bannerShowcaseH1}>
+                Crafting Digital Experiences
+              </h1>
+              <h2 className={style.bannerShowcaseH2}>
+                programming new experiences
+              </h2>
+              {/* image in here ... */}
+              <GatsbyImage image={image} className={style.animImg} />
+            </div>
+          </div>
+          <div className={`card ${style.profileImg}`}>
+            <div className="card-body">
+              <img src="" alt="description" className="img-fluid" />
+            </div>
+          </div>
+          <BannerSkills />
+        </div>
+
+        <div className="card">
+          <div className="card-body">
+            <h3>Join us in making the new youthTech</h3>
+            <p>
+              Someone simply had a thought, "What if at least the minorities of
+              the human race get all together and create something that can
+              bring forth a new era of job?". With a lot of people being jobless
+              and having no means of getting a secure income in life, forget the
+              luxury, we can't even afford a days worth of food.
+            </p>
+            <p>
+              People just see messages like this and laugh their asses off and
+              continue with their daily life.
+            </p>
+            <p>
+              This behaviour in us is the proof of the small mindset in
+              majorities of the people. Since ancient times, we have been living
+              like this. With no care for the general survival of the species
+              but living for ourselves, we have long forgotten the task we were
+              given.
+            </p>
+            <p>
+              All life forms in this planet have a purpose, hence carrying out
+              the pre-destined purpose in life. Until facing a major threat,
+              nobody would care for things like this. We don't focus on the main
+              scenarios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  )
+}
+
 export const Head = () => <Seo title="Home" />
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "asa.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+      }
+    }
+  }
+`
 
 export default IndexPage

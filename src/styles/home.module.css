@@ -1,0 +1,109 @@
+.section1 {
+    display: grid;
+    grid-template-columns: repeat(6, 2fr);
+    grid-template-rows: 400px 120px;
+    gap: 12px;
+    margin-bottom: calc(12px * 4);
+}
+
+.section1 .banner {
+    grid-column: 1/5;
+    grid-row: 1;
+    padding: 12px;
+}
+
+.section1 .profileImg {
+    grid-column: 5/span 2;
+    grid-row: 1;
+}
+
+.section1 .bannerSkillCards {
+    grid-column: 1/7;
+    grid-row: 2;
+    border: 2px solid var(--d-10);
+    padding: 12px;
+    border-radius: 12px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.bannerSkillCards .body {
+    padding: calc(12px * 3);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bannerSkillName {
+    font-size: 12px;
+    font-family: 'MonoBold';
+    text-wrap: nowrap;
+    text-transform: uppercase;
+    position: relative;
+    bottom: 24px;
+    color: var(--g-50)
+}
+
+.bannerSkillData {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'MonoBold';
+    color: var(--o-65);
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    translate: -50%;
+}
+
+.bannerKnowMoreCardBody {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.bannerKnowMoreLink {
+    font-family: 'MonoBold';
+    text-transform: uppercase;
+    font-size: 18px;
+    color: var(--g-40)
+}
+
+.bannerKnowMoreIcon {
+    --s: 40px;
+    font-size: 16px;
+    border-radius: 50%;
+    color: var(--o-65);
+    width: var(--s);
+    height: var(--s);
+    background: var(--d-06);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerShowcaseH1 {
+    font-family: 'BebasBold';
+    color: var(--o-80);
+    font-weight: 800;
+    font-size: 4em;
+}
+
+.bannerShowcaseH2 {
+    font-family: 'Archive';
+    color: var(--g-40);
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.animImg {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 300px;
+    object-fit: contain;
+    filter: contrast(2) brightness(0.3) blur(1px);
+}

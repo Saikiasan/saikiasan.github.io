@@ -5,14 +5,24 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "gatsby": "^5.14.0",
+    "gatsby-plugin-github-pages": "^1.0.1",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
     "gatsby-plugin-sharp": "^5.14.0",
+    "gatsby-plugin-sitemap": "^6.14.0",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
+    "gatsby-remark-prismjs": "^7.14.0",
     "gatsby-source-filesystem": "^5.14.0",
+    "gatsby-transformer-remark": "^6.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
+    "gh-pages": "^6.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.3.0"
   },
   "devDependencies": {
     "prettier": "^2.8.8"
@@ -22,6 +32,7 @@
   ],
   "license": "0BSD",
   "scripts": {
+    "deploy": "gatsby build && gh-pages -d public -b main",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
@@ -32,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/Saikiasan/saikiasan.github.io.git"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"

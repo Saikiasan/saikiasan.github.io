@@ -1,0 +1,177 @@
+:root {
+    --o-60: #ce7d63;
+    --o-65: #d48e77;
+    --o-70: #da9e8b;
+    --o-80: #e7beb1;
+    --o-90: #f3dfd8;
+    --o-95: #f9efec;
+    --o-97: #fbf5f3;
+    --o-99: #fefcfb;
+
+    --d-06: #0f0f0f;
+    --d-10: #191919;
+    --d-12: #1f1f1f;
+    --d-15: #262626;
+    --d-20: #333333;
+    --d-25: #404040;
+    --d-30: #4c4c4c;
+    --d-35: #595959;
+
+    --g-40: #676665;
+    --g-50: #81807E;
+    --g-70: #B3B3B2;
+    --g-80: #cccccc;
+    --g-90: #E6E6E6;
+    --g-95: #F2F2F2;
+    --g-97: #F7F7F7;
+    --g-99: #FCFCFC;
+
+    --neon-pink: #FF6EC7;
+    --neon-green: #39FF14;
+    --neon-blue: #1B03A3;
+    --neon-yellow: #FFFF33;
+    --neon-orange: #FF5F00;
+}
+
+html {
+    overflow-y: auto;
+}
+
+html::-webkit-scrollbar {
+    width: 4px;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--d-06);
+    border-radius: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--o-60);
+    border-radius: 12px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: var(--o-80);
+}
+
+@font-face {
+    font-family: 'CodePro';
+    src: url('../fonts/CodePro-Trial-LightLC.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MonoLight';
+    src: url('../fonts//mono/RobotoMono-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MonoMedium';
+    src: url('../fonts/mono/RobotoMono-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MonoBold';
+    src: url('../fonts/mono/RobotoMono-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Avalon';
+    src: url('../fonts/FontsFree-Net-Avalon.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BebasBold';
+    src: url('../fonts/BebasNeue-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'IntroCd';
+    src: url('../fonts/IntroCd-Trial-BkInl.ttf')format('truetype');
+}
+
+@font-face {
+    font-family: 'Archive';
+    src: url('../fonts/Archive-Regular.ttf') format('truetype');
+}
+
+body {
+    background: var(--d-06) !important;
+}
+
+
+main {
+    margin: 12px 12px;
+}
+
+.navbar {
+    /* --bs-navbar-padding-y: 24px; */
+    /* --bs-navbar-padding-x: 18px; */
+    margin-top: 24px;
+    margin-left: 24px;
+    margin-right: 24px;
+    background: var(--d-10);
+    border-radius: 12px;
+}
+
+.navbar .container-fluid {
+    /* margin: 0 18px; */
+    padding: 18px;
+}
+
+.navbar-brand {
+    color: var(--o-60);
+    font-size: 24px;
+    font-weight: 800;
+    font-family: 'CodePro';
+    transition: color 500ms ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: var(--o-70);
+    cursor: pointer;
+}
+
+.navbar .nav-item {
+    background: var(--d-06);
+    margin-left: 16px;
+    border-radius: 12px;
+}
+
+.navbar .nav-link.active {
+    color: var(--o-80) !important;
+}
+
+.navbar .nav-link {
+    --bs-navbar-nav-link-padding-x: 24px;
+    color: var(--g-50) !important;
+    font-family: 'MonoBold';
+}
+
+.navbar .nav-item:nth-last-child(1) {
+    background: var(--o-60) !important;
+}
+
+.navbar .nav-item:nth-last-child(1) .nav-link {
+    color: var(--d-06) !important;
+}
+
+.card {
+    background: var(--d-10);
+    color: var(--o-95);
+    border-radius: 12px;
+}
+
+.btn {
+    transition: all 500ms ease-in-out;
+}
+
+.btn:hover {
+    background: var(--d-06);
+    color: var(--o-60);
+}
+
+.s-btn {
+    padding: 12px;
+    border-radius: 12px;
+}

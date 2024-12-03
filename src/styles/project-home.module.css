@@ -1,0 +1,65 @@
+.projectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: start;
+    align-items: stretch;
+}
+
+.projectCard {
+    text-decoration: none;
+    flex: 1 1 calc(50% - 12px);
+    box-sizing: border-box;
+}
+
+.projectCard:nth-child(odd):last-child {
+    width: calc(50% - 6px);
+    flex: none;
+}
+
+.projectCardBody {
+    padding: calc(12px * 2) calc(12px * 3);
+}
+
+/* TYPOGRAPHY */
+.projectHeading {
+    color: var(--o-65);
+    font-family: "Archive";
+    font-size: "4em";
+    text-transform: capitalize;
+    text-align: center;
+    padding-bottom: 12px;
+}
+
+.pTitle {
+    font-size: 2em;
+    text-wrap: nowrap;
+    font-family: 'IntroCd';
+    color: var(--o-60);
+    text-align: center;
+    /* margin-bottom: 8px; */
+}
+
+.pTitle::after {
+    content: '';
+    display: inherit;
+    width: 80%;
+    height: 2px;
+    background-color: var(--neon-orange);
+    margin: auto;
+}
+
+.pStack {
+    font-size: 1.2em;
+    font-weight: 800;
+    font-family: 'MonoLight';
+    color: var(--neon-green);
+    text-align: center;
+    /* margin-bottom: 8px; */
+}
+
+.pExcerpt {
+    font-size: 1.2em;
+    font-family: 'MonoMedium';
+    color: var(--d-30)
+}

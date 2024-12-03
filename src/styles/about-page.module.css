@@ -1,0 +1,69 @@
+.pageTitle {
+    color: var(--o-65);
+    font-family: "Archive";
+    font-size: "4em";
+    text-transform: capitalize;
+    text-align: center;
+    padding-bottom: 12px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: stretch;
+    justify-content: start;
+}
+
+
+.description {
+    flex: 1 1 calc(40% - 12px);
+    padding: 12px;
+}
+
+.descriptionText {
+    color: var(--o-65);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-family: 'MonoLight';
+    text-align: start;
+    overflow: hidden;
+}
+
+.skills {
+    flex: 1 1 calc(60% - 12px);
+}
+
+.p1 {
+    padding: 12px;
+}
+
+.p2 {
+    padding: 24px;
+}
+
+.itemHeading1 {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    font-family: 'MonoBold';
+    color: var(--o-70);
+}
+
+.skillItemList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    text-wrap: nowrap;
+    align-items: center;
+    justify-content: start;
+}
+
+.skillItem {
+    flex: 0;
+    background: var(--d-15);
+    padding: 12px;
+    font-size: 14px;
+    color: var(--o-60);
+    font-family: 'MonoBold';
+    border-radius: 6px;
+}
