@@ -81,7 +81,7 @@ const navbarLinks = [
     u: "/blogs",
   },
   {
-    t: "contact me",
+    t: "contact",
     u: "/contact",
   },
 ]

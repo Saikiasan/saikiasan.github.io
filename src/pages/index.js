@@ -2,29 +2,82 @@ import * as React from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import * as style from "../styles/home.module.css"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { BsBicycle, BsFillArrowUpRightCircleFill } from "react-icons/bs"
+import { IconContext } from "react-icons"
 
 const skills = [
   {
-    n: "web development",
-    d: "89%",
+    n: "BCA",
+    d: "2023",
   },
   {
-    n: "app development",
-    d: "5+",
+    n: "projects",
+    d: "50+",
   },
   {
-    n: "data analysis",
-    d: "70%",
+    n: "photoshop",
+    d: "40+",
   },
   {
-    n: "machine learning",
-    d: "65%",
+    n: "electrical",
+    d: ">5",
   },
   {
-    n: "cyber security",
-    d: "80%",
+    n: "designing concepts",
+    d: "20+",
+  },
+]
+
+const services = [
+  {
+    icon: <i className="bi bi-laptop" />,
+    name: "Web Development",
+    description:
+      "We specialize in building high-quality websites using modern technologies and best practices.",
+    price: "1,300",
+    link: "/services/web-development",
+  },
+  {
+    icon: <i class="bi bi-phone"></i>,
+    name: "App Development",
+    description:
+      "We develop high-quality mobile applications using React Native, Flutter, or Ionic.",
+    price: "1,500",
+    link: "/services/app-development",
+  },
+  {
+    icon: <i class="bi bi-briefcase"></i>,
+    name: "Digital Solutions",
+    description:
+      "We help businesses transform their digital presence by designing and implementing solutions.",
+    price: "2,000",
+    link: "/services/digital-solutions",
+  },
+  {
+    icon: <i class="bi bi-cup-straw"></i>,
+    name: "UI - UX design",
+    description:
+      "We help businesses create visually appealing and user-friendly interfaces.",
+    price: "1,000",
+    link: "/services/ui-ux-design",
+  },
+  {
+    icon: <i class="bi bi-bar-chart"></i>,
+    name: "Data Analysis",
+    description:
+      "We help businesses make data-driven decisions by analyzing and interpreting data.",
+    price: "1,200",
+    link: "/services/data-analysis",
+  },
+  {
+    icon: <i class="bi bi-robot"></i>,
+    name: "Machine Learning",
+    description:
+      "We help businesses create advanced machine learning models and algorithms.",
+    price: "1,500",
+    link: "/services/machine-learning",
   },
 ]
 
@@ -40,14 +93,13 @@ const BannerSkills = () => {
           </div>
         </div>
       ))}
-      <div className="card">
+      <Link to="/about/services" className="card text-decoration-none">
         <div className={`card-body ${style.bannerKnowMoreCardBody}`}>
           <i className={`bi bi-arrow-up-right ${style.bannerKnowMoreIcon}`}></i>
           <span className={style.bannerKnowMoreLink}>know more</span>
         </div>
-      </div>
+      </Link>
     </div>
-    // </div>
   )
 }
 
@@ -65,45 +117,71 @@ const IndexPage = ({ data }) => {
               <h2 className={style.bannerShowcaseH2}>
                 programming new experiences
               </h2>
-              {/* image in here ... */}
-              <GatsbyImage image={image} className={style.animImg} />
+              {/* <GatsbyImage image={image} className={style.animImg} /> */}
             </div>
           </div>
           <div className={`card ${style.profileImg}`}>
             <div className="card-body">
-              <img src="" alt="description" className="img-fluid" />
+              <GatsbyImage image={image} className={style.animImg} />
             </div>
           </div>
           <BannerSkills />
         </div>
 
-        <div className="card">
-          <div className="card-body">
-            <h3>Join us in making the new youthTech</h3>
-            <p>
-              Someone simply had a thought, "What if at least the minorities of
-              the human race get all together and create something that can
-              bring forth a new era of job?". With a lot of people being jobless
-              and having no means of getting a secure income in life, forget the
-              luxury, we can't even afford a days worth of food.
-            </p>
-            <p>
-              People just see messages like this and laugh their asses off and
-              continue with their daily life.
-            </p>
-            <p>
-              This behaviour in us is the proof of the small mindset in
-              majorities of the people. Since ancient times, we have been living
-              like this. With no care for the general survival of the species
-              but living for ourselves, we have long forgotten the task we were
-              given.
-            </p>
-            <p>
-              All life forms in this planet have a purpose, hence carrying out
-              the pre-destined purpose in life. Until facing a major threat,
-              nobody would care for things like this. We don't focus on the main
-              scenarios.
-            </p>
+        <div className={`${style.service}`}>
+          <div className={style.card} style={{ flex: 1, alignItems: "center" }}>
+            <h2
+              style={{
+                textTransform: "uppercase",
+                color: "var(--o-80)",
+                fontFamily: "Archive",
+              }}
+            >
+              my services
+            </h2>
+          </div>
+
+          <div
+            style={{
+              flex: "1 1 100%",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "12px",
+              alignItems: "stretch",
+              justifyContent: "start",
+            }}
+          >
+            {services.map(service => (
+              <div
+                className={style.card}
+                style={{ flex: "1 1 calc(50% - 12px)" }}
+              >
+                <div
+                  className={style.serviceFlex}
+                  style={{
+                    marginBottom: "24px",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div className={style.serviceFlex}>
+                    <div className={style.serviceIcon}>{service.icon}</div>
+                    <h3>{service.name}</h3>
+                  </div>
+                  <Link to={service.link} className={style.serviceLink}>
+                    <i
+                      className={`bi bi-arrow-up-right ${style.serviceLinkIcon}`}
+                    ></i>
+                    <span className={style.serviceLinkSpan}>Book a call</span>
+                  </Link>
+                </div>
+                <p className={style.serviceDescription}>
+                  {service.description}
+                </p>
+                <span className={style.servicePrice}>
+                  Starts from ₹{service.price}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -117,7 +195,11 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "asa.png" }) {
       childImageSharp {
-        gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        gatsbyImageData(
+          layout: CONSTRAINED
+          placeholder: BLURRED
+          formats: WEBP
+        )
       }
     }
   }

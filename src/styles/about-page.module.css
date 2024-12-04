@@ -67,3 +67,32 @@
     font-family: 'MonoBold';
     border-radius: 6px;
 }
+
+.textSection {
+    flex: 1 1 calc(50% - 12px);
+    padding: 24px;
+}
+
+.textSectionsHead {
+    color: var(--o-70);
+    font-family: 'MonoBold';
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.textSectionsHead::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: var(--d-30);
+    margin-bottom: 12px;
+}
+
+.textSectionsPara {
+    font-size: 1.2rem;
+    color: var(--g-50);
+    font-family: 'MonoLight';
+    line-height: 1.5;
+    text-align: justify;
+}
