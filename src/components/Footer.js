@@ -7,25 +7,25 @@ const socialMediaLinks = [
     name: "Facebook",
     icon: <i class="bi bi-facebook"></i>,
     cap: "Share posts on Facebook",
-    url: "",
+    url: "https://www.facebook.com/opseeker.saikia",
   },
   {
     name: "Instagram",
     icon: <i class="bi bi-instagram"></i>,
     cap: "Follow on Instagram",
-    url: "",
+    url: "https://www.instagram.com/saikia.code/",
   },
   {
     name: "LinkedIn",
     icon: <i className="bi bi-linkedin"></i>,
     cap: "Connect on LinkedIn",
-    url: "",
+    url: "https://www.linkedin.com/in/ankit-saikia-17a48623b/",
   },
   {
     name: "WhatsApp",
     icon: <i class="bi bi-whatsapp"></i>,
     cap: "Contact on WhatsApp",
-    url: "",
+    url: "https://wa.me/918257068226?text=Hello%0AI%20saw%20your%20site%20and%20wanted%20to%20know%20more",
   },
 ]
 
@@ -67,7 +67,11 @@ const SocialCards = () => {
           <div className="card-body">
             <div className="top justify-content-between align-items-center">
               <div className="icon">{link.icon}</div>
-              <Link className="link" style={{ width: "40px", height: "40px" }}>
+              <Link
+                to={link.url}
+                className="link"
+                style={{ width: "40px", height: "40px" }}
+              >
                 <i className="bi bi-arrow-up-right"></i>
               </Link>
             </div>
