@@ -2,6 +2,7 @@
 title: C.T College CMS
 stack: PHP, HTML, CSS, JavaScript
 slug: ctctsk
+type: project
 ---
 
 ## College CMS

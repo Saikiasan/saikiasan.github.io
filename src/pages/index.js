@@ -4,13 +4,17 @@ import Seo from "../components/Seo"
 import * as style from "../styles/home.module.css"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { BsBicycle, BsFillArrowUpRightCircleFill } from "react-icons/bs"
-import { IconContext } from "react-icons"
+import { GiSpiderWeb } from "react-icons/gi"
+import { IoLogoAndroid } from "react-icons/io"
+import { FaDigitalOcean, FaUikit } from "react-icons/fa6"
+import { TbBrandGoogleAnalytics } from "react-icons/tb"
+import { SiTensorflow } from "react-icons/si"
+import { BsArrowUpRight } from "react-icons/bs"
 
 const skills = [
   {
-    n: "BCA",
-    d: "2023",
+    n: "Happy Clients",
+    d: "23+",
   },
   {
     n: "projects",
@@ -21,62 +25,62 @@ const skills = [
     d: "40+",
   },
   {
-    n: "electrical",
-    d: ">5",
+    n: "local business",
+    d: "8+",
   },
   {
-    n: "designing concepts",
-    d: "20+",
+    n: "3d autocad",
+    d: "4+",
   },
 ]
 
 const services = [
   {
-    icon: <i className="bi bi-laptop" />,
+    icon: <IoLogoAndroid className={style.reactIcons} />,
     name: "Web Development",
     description:
       "We specialize in building high-quality websites using modern technologies and best practices.",
-    price: "1,300",
+    price: "999",
     link: "/services/web-development",
   },
   {
-    icon: <i class="bi bi-phone"></i>,
+    icon: <GiSpiderWeb className={style.reactIcons} />,
     name: "App Development",
     description:
       "We develop high-quality mobile applications using React Native, Flutter, or Ionic.",
-    price: "1,500",
+    price: "1,499",
     link: "/services/app-development",
   },
   {
-    icon: <i class="bi bi-briefcase"></i>,
+    icon: <FaDigitalOcean className={style.reactIcons} />,
     name: "Digital Solutions",
     description:
       "We help businesses transform their digital presence by designing and implementing solutions.",
-    price: "2,000",
+    price: "1,299",
     link: "/services/digital-solutions",
   },
   {
-    icon: <i class="bi bi-cup-straw"></i>,
+    icon: <FaUikit className={style.reactIcons} />,
     name: "UI - UX design",
     description:
       "We help businesses create visually appealing and user-friendly interfaces.",
-    price: "1,000",
+    price: "899",
     link: "/services/ui-ux-design",
   },
   {
-    icon: <i class="bi bi-bar-chart"></i>,
+    icon: <TbBrandGoogleAnalytics className={style.reactIcons} />,
     name: "Data Analysis",
     description:
       "We help businesses make data-driven decisions by analyzing and interpreting data.",
-    price: "1,200",
+    price: "3,100",
     link: "/services/data-analysis",
   },
   {
-    icon: <i class="bi bi-robot"></i>,
+    icon: <SiTensorflow className={style.reactIcons} />,
     name: "Machine Learning",
     description:
       "We help businesses create advanced machine learning models and algorithms.",
-    price: "1,500",
+    price: "5,490",
     link: "/services/machine-learning",
   },
 ]
@@ -86,7 +90,7 @@ const BannerSkills = () => {
     <div className={style.bannerSkillCards}>
       {/* <div className=""> */}
       {skills.map((skill, index) => (
-        <div className={`card ${style.skillCard}`}>
+        <div className={`card`}>
           <div className={`card-body ${style.body}`}>
             <span className={style.bannerSkillData}>{skill.d}</span>
             <span className={style.bannerSkillName}>{skill.n}</span>
@@ -99,6 +103,63 @@ const BannerSkills = () => {
           <span className={style.bannerKnowMoreLink}>know more</span>
         </div>
       </Link>
+    </div>
+  )
+}
+
+const ServicesProvided = () => {
+  return (
+    <div className={`${style.service}`}>
+      <div className={style.card} style={{ flex: 1, alignItems: "center" }}>
+        <h2
+          style={{
+            textTransform: "uppercase",
+            color: "var(--o-80)",
+            fontFamily: "Archive",
+          }}
+        >
+          my services
+        </h2>
+      </div>
+
+      <div
+        style={{
+          flex: "1 1 100%",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "12px",
+          alignItems: "stretch",
+          justifyContent: "start",
+        }}
+      >
+        {services.map(service => (
+          <div className={style.card} style={{ flex: "1 1 calc(50% - 12px)" }}>
+            <div
+              className={style.serviceFlex}
+              style={{
+                marginBottom: "24px",
+                justifyContent: "space-between",
+              }}
+            >
+              <div className={style.serviceFlex}>
+                <div className={style.serviceIcon}>{service.icon}</div>
+                <h3>{service.name}</h3>
+              </div>
+              <Link to={service.link} className={style.serviceLink}>
+                <BsArrowUpRight className={style.serviceLinkIcon} />
+                <span className={style.serviceLinkSpan}>Book a call</span>
+              </Link>
+            </div>
+            <p className={style.serviceDescription}>{service.description}</p>
+            <span className={style.servicePrice}>
+              Starts from&nbsp;
+              <span style={{ color: "var(--neon-green)" }}>
+                ₹{service.price}
+              </span>
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
@@ -128,62 +189,7 @@ const IndexPage = ({ data }) => {
           <BannerSkills />
         </div>
 
-        <div className={`${style.service}`}>
-          <div className={style.card} style={{ flex: 1, alignItems: "center" }}>
-            <h2
-              style={{
-                textTransform: "uppercase",
-                color: "var(--o-80)",
-                fontFamily: "Archive",
-              }}
-            >
-              my services
-            </h2>
-          </div>
-
-          <div
-            style={{
-              flex: "1 1 100%",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "12px",
-              alignItems: "stretch",
-              justifyContent: "start",
-            }}
-          >
-            {services.map(service => (
-              <div
-                className={style.card}
-                style={{ flex: "1 1 calc(50% - 12px)" }}
-              >
-                <div
-                  className={style.serviceFlex}
-                  style={{
-                    marginBottom: "24px",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div className={style.serviceFlex}>
-                    <div className={style.serviceIcon}>{service.icon}</div>
-                    <h3>{service.name}</h3>
-                  </div>
-                  <Link to={service.link} className={style.serviceLink}>
-                    <i
-                      className={`bi bi-arrow-up-right ${style.serviceLinkIcon}`}
-                    ></i>
-                    <span className={style.serviceLinkSpan}>Book a call</span>
-                  </Link>
-                </div>
-                <p className={style.serviceDescription}>
-                  {service.description}
-                </p>
-                <span className={style.servicePrice}>
-                  Starts from ₹{service.price}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <ServicesProvided />
       </div>
     </Layout>
   )

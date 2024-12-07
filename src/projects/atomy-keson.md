@@ -3,6 +3,7 @@ title: Atomy Keson
 stack: HTML, CSS, JS, Python, Bootstrap, jQuery
 slug: atomy-keson
 author: Ankit Saikia
+type: project
 ---
 
 ## AtomyKeson
