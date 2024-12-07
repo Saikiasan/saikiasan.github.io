@@ -5,7 +5,20 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allMarkdownRemark {
+      projects: allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "project" } } }
+      ) {
+        nodes {
+          frontmatter {
+            slug
+          }
+          id
+        }
+      }
+
+      policies: allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "policy" } } }
+      ) {
         nodes {
           frontmatter {
             slug
@@ -20,13 +33,26 @@ exports.createPages = async ({ graphql, actions }) => {
     reporter.panicOnBuild("Error loading MDX result", result.errors)
   }
 
-  const projects = result.data.allMarkdownRemark.nodes
+  // Create projects pages
+  const projects = result.data.projects.nodes
   const projectTemplate = path.resolve(`./src/templates/project-detail.js`)
-
   projects.forEach(node => {
     createPage({
       path: `/projects/${node.frontmatter.slug}`,
       component: projectTemplate,
+      context: {
+        id: node.id,
+      },
+    })
+  })
+
+  // Create policy articles
+  const policies = result.data.policies.nodes
+  const policyTemplate = path.resolve(`./src/templates/policy-detail.js`)
+  policies.forEach(node => {
+    createPage({
+      path: `/policy/${node.frontmatter.slug}`,
+      component: policyTemplate,
       context: {
         id: node.id,
       },

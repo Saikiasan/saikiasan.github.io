@@ -10,7 +10,7 @@
 module.exports = {
   siteMetadata: {
     title: `Saikia Codes`,
-    description: `Saikia codes website`,
+    description: `Making business localization a successful story with tech stacks`,
     author: `Ankit Saikia`,
   },
   plugins: [
@@ -34,6 +34,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `policies`,
+        path: `${__dirname}/src/policies`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
@@ -44,7 +51,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/example.png`,
       },
     },
   ],
