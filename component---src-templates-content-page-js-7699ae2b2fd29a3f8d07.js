@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[457],{8589:function(e,t,a){a.r(t),a.d(t,{default:function(){return l}});var n=a(6540),r=a(1138);function l(e){let{data:{markdownRemark:t}}=e;return n.createElement(r.A,null,n.createElement("div",{className:"container-fluid"},n.createElement("div",{dangerouslySetInnerHTML:{__html:t.html}})))}}}]);
+//# sourceMappingURL=component---src-templates-content-page-js-7699ae2b2fd29a3f8d07.js.map
