@@ -26,6 +26,17 @@ exports.createPages = async ({ graphql, actions }) => {
           id
         }
       }
+
+      contents: allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "content" } } }
+      ) {
+        nodes {
+          frontmatter {
+            slug
+          }
+          id
+        }
+      }
     }
   `)
 
@@ -53,6 +64,19 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/policy/${node.frontmatter.slug}`,
       component: policyTemplate,
+      context: {
+        id: node.id,
+      },
+    })
+  })
+
+  // Create content pages
+  const contents = result.data.contents.nodes
+  const contentTemplate = path.resolve(`./src/templates/content-page.js`)
+  contents.forEach(node => {
+    createPage({
+      path: `/${node.frontmatter.slug}`,
+      component: contentTemplate,
       context: {
         id: node.id,
       },
