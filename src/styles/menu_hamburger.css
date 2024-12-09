@@ -55,7 +55,7 @@ svg {
 
 .line {
   fill: none;
-  stroke: black;
+  stroke: var(--o-65);
   stroke-width: 6px;
   stroke-linecap: round;
   stroke-linejoin: round;

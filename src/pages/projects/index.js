@@ -33,7 +33,10 @@ const Projects = ({ data }) => {
 
 export const query = graphql`
   query ProjectsPage {
-    allMarkdownRemark(sort: { frontmatter: { title: ASC } }) {
+    allMarkdownRemark(
+      sort: { frontmatter: { title: ASC } }
+      filter: { frontmatter: { type: { eq: "project" } } }
+    ) {
       nodes {
         frontmatter {
           slug

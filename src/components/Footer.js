@@ -10,6 +10,7 @@ import {
   BsLinkedin,
   BsWhatsapp,
 } from "react-icons/bs"
+import { useMediaQuery } from "react-responsive"
 
 const socialMediaLinks = [
   {
@@ -97,6 +98,18 @@ const SocialCards = () => {
   )
 }
 
+const MobileSocialCards = () => {
+  return (
+    <div className={s.mSocialCardContainer}>
+      {socialMediaLinks.map((link, index) => (
+        <Link to={link.url} target="_blank" className={s.mSocialCardLink}>
+          {link.icon}
+        </Link>
+      ))}
+    </div>
+  )
+}
+
 const Navigation = () => {
   return (
     <div className={s.navigationContainer}>
@@ -167,7 +180,76 @@ const Navigation = () => {
     </div>
   )
 }
-
+const MobileNavigation = () => {
+  return (
+    <div className={s.mNavigationContainer}>
+      <div className={`card ${s.mNavigationCard}`}>
+        <div className="card-body d-flex justify-content-center flex-wrap">
+          <div className={` ${s.mNavigationColumn}`}>
+            <h5 className={`${s.mNavigationListTitle}`}>Home</h5>
+            <ul className="nav flex-column">
+              {navigationLinks.site.map((link, index) => (
+                <li className="nav-item" key={index}>
+                  <Link
+                    to={link.url}
+                    className={`nav-link ${s.mNavigationLink}`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={` ${s.mNavigationColumn}`}>
+            <h5 className={`${s.mNavigationListTitle}`}>Services</h5>
+            <ul className="nav flex-column">
+              {navigationLinks.services.map((link, index) => (
+                <li className="nav-item" key={index}>
+                  <Link
+                    to={link.url}
+                    className={`nav-link ${s.mNavigationLink}`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={` ${s.mNavigationColumn}`}>
+            <h5 className={`${s.mNavigationListTitle}`}>Projects</h5>
+            <ul className="nav flex-column">
+              {navigationLinks.projects.map((link, index) => (
+                <li className="nav-item" key={index}>
+                  <Link
+                    to={link.url}
+                    className={`nav-link ${s.mNavigationLink}`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={` ${s.mNavigationColumn}`}>
+            <h5 className={`${s.mNavigationListTitle}`}>Blogs</h5>
+            <ul className="nav flex-column">
+              {navigationLinks.blogs.map((link, index) => (
+                <li className="nav-item" key={index}>
+                  <Link
+                    to={link.url}
+                    className={`nav-link ${s.mNavigationLink}`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 const Newsletter = () => {
   return (
     <div className={s.newsLetterContainer}>
@@ -202,7 +284,36 @@ const Newsletter = () => {
     </div>
   )
 }
-
+const MobileNewsletter = () => {
+  return (
+    <div className={s.mNewsLetterContainer}>
+      <div className={`card ${s.mNewsLetterCard}`}>
+        <div className="card-body">
+          <h5 className={s.mNewsLetterTitle}>Newsletter</h5>
+          <h4 className={s.mNewsLetterText}>subscribe to my newsletters</h4>
+          <form className={s.mNewsLetterForm}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className={s.mNewsLetterInput}
+            />
+            <button
+              type="submit"
+              className={`btn rounded-circle ${s.mNewsLetterLink} ${s.transitionAll500ms}`}
+            >
+              <BsArrowUpRight
+                className={s.arrowIcon}
+                style={{
+                  color: "var(--o-80)",
+                }}
+              />
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
+}
 const Copyright = siteAuthor => {
   return (
     <div className={s.copyright}>
@@ -226,8 +337,84 @@ const Copyright = siteAuthor => {
     </div>
   )
 }
+const MobileCopyright = siteAuthor => {
+  return (
+    <div className={s.copyright}>
+      <div className="card">
+        <div className={`card-body ${s.mCopyrightCardBody}`}>
+          <p className={s.mCopyrightTxt}>
+            &copy; {new Date().getFullYear()} {siteAuthor.author}. All rights
+            reserved.
+          </p>
+          <div className={s.mCopyrightLinkContainer}>
+            <Link to="/tnc" className={s.mCopyrightLinks}>
+              Terms & Conditions
+            </Link>
+            <hr />
+            <Link to="/privacy-policy" className={s.mCopyrightLinks}>
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Footer({ siteAuthor }) {
+  const isMobile = useMediaQuery({ maxWidth: 768 })
+  return isMobile ? (
+    <MobileFooter siteAuthor={siteAuthor} />
+  ) : (
+    <PcFooter siteAuthor={siteAuthor} />
+  )
+}
+
+const MobileFooter = ({ siteAuthor }) => {
+  return (
+    <footer className={s.mFooter}>
+      <div
+        className="card"
+        style={{
+          padding: "12px",
+          background: "var(--o-60)",
+        }}
+      >
+        <div className="card-body">
+          <h2 className={s.mPromoCardTitle}>Still thinking?</h2>
+          <p className={`lead ${s.mPromoCardText}`}>
+            Turn your ideas into reality. You are just a call away anyways. Why
+            hesitate, lets work together, achieve a great successful result.
+          </p>
+          <Link
+            to="/contact/"
+            className={`text-uppercase btn w-100 ${s.customBtn_12px}  ${s.transitionAll500ms} d-inline-flex justify-content-center`}
+            style={{
+              background: "var(--d-06)",
+              color: "var(--0-90)",
+            }}
+          >
+            Get in touch
+            <BsArrowUpRight
+              className={s.arrowIcon}
+              style={{ position: "relative", marginLeft: "12px" }}
+            />
+          </Link>
+        </div>
+      </div>
+      <div className={s.mGrid_1}>
+        <MobileSocialCards />
+        <MobileNavigation />
+        <div className={s.mGrid_2}>
+          <MobileNewsletter />
+          <MobileCopyright author={siteAuthor} />
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+const PcFooter = ({ siteAuthor }) => {
   return (
     <footer className={s.footer}>
       <div
@@ -238,24 +425,8 @@ export default function Footer({ siteAuthor }) {
         }}
       >
         <div className="card-body">
-          <h2
-            className="text-uppercase"
-            style={{
-              color: "var(--d-06)",
-              letterSpacing: "2px",
-              fontFamily: "Mono Medium",
-              fontSize: "3em",
-            }}
-          >
-            ready to upgrade your business?
-          </h2>
-          <p
-            className="lead fs-3 fw-normal"
-            style={{
-              fontFamily: "Monospace",
-              color: "var(--d-06)",
-            }}
-          >
+          <h2 className={s.promoCardTitle}>ready to upgrade your business?</h2>
+          <p className={`lead ${s.promoCardText}`}>
             Take the first step towards digital success with me.
           </p>
           <Link

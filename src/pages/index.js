@@ -10,6 +10,7 @@ import { FaDigitalOcean, FaUikit } from "react-icons/fa6"
 import { TbBrandGoogleAnalytics } from "react-icons/tb"
 import { SiTensorflow } from "react-icons/si"
 import { BsArrowUpRight } from "react-icons/bs"
+import { useMediaQuery } from "react-responsive"
 
 const skills = [
   {
@@ -106,6 +107,32 @@ const BannerSkills = () => {
     </div>
   )
 }
+const MobileBannerSkills = () => {
+  return (
+    <div className={style.mbannerSkillCards}>
+      {/* <div className=""> */}
+      {skills.map((skill, index) => (
+        <div className={`card ${style.mbannerSkillCard}`}>
+          <div className={`card-body ${style.mbody}`}>
+            <span className={style.mbannerSkillName}>{skill.n}</span>
+            <span className={style.mbannerSkillData}>{skill.d}</span>
+          </div>
+        </div>
+      ))}
+      <Link
+        to="/about/services"
+        className={`card text-decoration-none ${style.mbannerKnowMoreLinkContainer}`}
+      >
+        <div className={`card-body ${style.mbannerKnowMoreCardBody}`}>
+          <span className={style.mbannerKnowMoreIconSpan}>
+            <BsArrowUpRight className={style.mbannerKnowMoreIcon} />
+          </span>
+          <span className={style.mbannerKnowMoreLink}>know more</span>
+        </div>
+      </Link>
+    </div>
+  )
+}
 
 const ServicesProvided = () => {
   return (
@@ -163,40 +190,53 @@ const ServicesProvided = () => {
     </div>
   )
 }
-
-const IndexPage = ({ data }) => {
-  const image = getImage(data.file.childImageSharp)
+const MobileServicesProvided = () => {
   return (
-    <Layout>
-      <div className="container-fluid">
-        <div className={style.section1}>
-          <div className={`card ${style.banner}`}>
-            <div className="card-body">
-              <h1 className={style.bannerShowcaseH1}>
-                Crafting Digital Experiences
-              </h1>
-              <h2 className={style.bannerShowcaseH2}>
-                programming new experiences
-              </h2>
-              {/* <GatsbyImage image={image} className={style.animImg} /> */}
-            </div>
-          </div>
-          <div className={`card ${style.profileImg}`}>
-            <div className="card-body">
-              <GatsbyImage image={image} className={style.animImg} />
-            </div>
-          </div>
-          <BannerSkills />
-        </div>
-
-        <ServicesProvided />
+    <div className={`${style.mservice}`}>
+      <div className={style.card} style={{ flex: 1, alignItems: "center" }}>
+        <h2
+          style={{
+            textTransform: "uppercase",
+            color: "var(--o-80)",
+            fontFamily: "Archive",
+          }}
+        >
+          my services
+        </h2>
       </div>
-    </Layout>
+
+      <div
+        style={{
+          flex: "1 1 100%",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "12px",
+          alignItems: "stretch",
+          justifyContent: "start",
+        }}
+      >
+        {services.map(service => (
+          <div className={style.mcard} style={{ flex: "1 1 100%" }}>
+            <div className={style.serviceFlex}>
+              <div className={style.serviceIcon}>{service.icon}</div>
+              <h3>{service.name}</h3>
+            </div>
+            <span className={style.mservicePrice}>
+              Starts from&nbsp;
+              <span style={{ color: "var(--neon-green)" }}>
+                ₹{service.price}
+              </span>
+            </span>
+            <p className={style.serviceDescription}>{service.description}</p>
+            <Link to={service.link} className={style.mserviceLink}>
+              <span className={style.mserviceLinkSpan}>Book a call</span>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
-
-export const Head = () => <Seo title="Home" />
-
 export const query = graphql`
   query {
     file(relativePath: { eq: "asa.png" }) {
@@ -210,5 +250,60 @@ export const query = graphql`
     }
   }
 `
+const MobileHome = () => {
+  return (
+    <div className={style.msection1}>
+      <div className={`card ${style.mbanner}`}>
+        <div className="card-body">
+          <h1 className={style.bannerShowcaseH1}>
+            Crafting Digital Experiences
+          </h1>
+          <h2 className={style.bannerShowcaseH2}>
+            programming new experiences
+          </h2>
+          {/* <GatsbyImage image={image} className={style.animImg} /> */}
+        </div>
+      </div>
+      <MobileBannerSkills />
+    </div>
+  )
+}
+const PcHome = ({ image }) => {
+  return (
+    <div className={style.section1}>
+      <div className={`card ${style.banner}`}>
+        <div className="card-body">
+          <h1 className={style.bannerShowcaseH1}>
+            Crafting Digital Experiences
+          </h1>
+          <h2 className={style.bannerShowcaseH2}>
+            programming new experiences
+          </h2>
+        </div>
+      </div>
+      <div className={`card ${style.profileImg}`}>
+        <div className="card-body">
+          <GatsbyImage image={image} className={style.animImg} />
+        </div>
+      </div>
+      <BannerSkills />
+    </div>
+  )
+}
+const IndexPage = ({ data }) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 })
+  const image = getImage(data.file.childImageSharp)
+  return (
+    <Layout>
+      <div className={isMobile ? "" : "container-fluid"}>
+        {isMobile ? <MobileHome /> : <PcHome image={image} />}
+
+        {isMobile ? <MobileServicesProvided /> : <ServicesProvided />}
+      </div>
+    </Layout>
+  )
+}
+
+export const Head = () => <Seo title="Home" />
 
 export default IndexPage

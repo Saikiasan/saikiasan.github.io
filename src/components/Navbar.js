@@ -1,7 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { useState } from "react"
-// import MenuIcon from "../images/menu-icon.svg"
+import "../styles/menu_hamburger.css"
+import "../styles/menutab.css"
+import { useMediaQuery } from "react-responsive"
 
 const Plate = () => {
   const [isActive, setIsActive] = useState(false)
@@ -86,60 +88,82 @@ const navbarLinks = [
   },
 ]
 
-const Header = ({ siteTitle }) => (
-  <nav
-    className="navbar navbar-expand-lg"
-    style={{ margin: "none", padding: "0 0" }}
-  >
-    <div
-      className="container-fluid"
-      style={{ margin: "0px 0px", padding: "12px" }}
+const Header = ({ siteTitle }) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 })
+  return (
+    <nav
+      className="navbar navbar-expand-lg"
+      style={{
+        margin: "none",
+        padding: "0 0",
+      }}
     >
-      <div className="navbar-brand">{siteTitle}</div>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbar_t"
-        aria-controls="navbar_t"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+      <div
+        className="container-fluid"
+        style={{ margin: "0px 0px", padding: "12px" }}
       >
-        <Plate />
-      </button>
-      <div className="collapse navbar-collapse " id="navbar_t">
-        <form
-          className="d-flex align-items-center justify-content-center ms-lg-auto me-lg-0 visually-hidden"
-          style={{ marginRight: "30px" }}
-          id="search-home"
-          role="search"
+        <div className="navbar-brand">{siteTitle}</div>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar_t"
+          aria-controls="navbar_t"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-          <i className="fa fa-search"></i>
-          <input
-            type="search"
-            aria-label="Search"
-            id="searchInput"
-            className="form-control rounded-pill"
-            placeholder="Search"
-            maxlength="20"
-          />
-        </form>
-        <ul className="navbar-nav ms-lg-auto mb-2 mb-lg-0">
-          {navbarLinks.map((link, index) => (
-            <li className="nav-item">
-              <Link
-                className="nav-link text-capitalize"
-                activeClassName="active"
-                to={link.u}
-              >
-                {link.t}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <Plate />
+        </button>
+        <div className="collapse navbar-collapse " id="navbar_t">
+          {/* <form
+            className="d-flex align-items-center justify-content-center ms-lg-auto me-lg-0 visually-hidden"
+            style={{ marginRight: "30px" }}
+            id="search-home"
+            role="search"
+          >
+            <i className="fa fa-search"></i>
+            <input
+              type="search"
+              aria-label="Search"
+              id="searchInput"
+              className="form-control rounded-pill"
+              placeholder="Search"
+              maxlength="20"
+            />
+          </form> */}
+          {isMobile ? (
+            <ul className="navbar-nav ms-lg-auto mb-2 mb-lg-0 gap-3 mt-5">
+              {navbarLinks.map((link, index) => (
+                <li className="nav-item px-4">
+                  <Link
+                    className="nav-link text-capitalize"
+                    activeClassName="active"
+                    to={link.u}
+                  >
+                    {link.t}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul className="navbar-nav ms-lg-auto mb-2 mb-lg-0">
+              {navbarLinks.map((link, index) => (
+                <li className="nav-item">
+                  <Link
+                    className="nav-link text-capitalize"
+                    activeClassName="active"
+                    to={link.u}
+                  >
+                    {link.t}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-    </div>
-  </nav>
-)
+    </nav>
+  )
+}
 
 export default Header

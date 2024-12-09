@@ -5,8 +5,6 @@ import Header from "./Navbar"
 import Footer from "./Footer"
 import "../styles/style-25.css"
 import "../styles/utils-25.css"
-import "../styles/menu_hamburger.css"
-import "../styles/menutab.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

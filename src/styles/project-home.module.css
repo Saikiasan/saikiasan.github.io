@@ -63,3 +63,16 @@
     font-family: 'MonoMedium';
     color: var(--d-30)
 }
+
+/* mobile */
+@media screen and (max-width: 768px) {
+    .projectContainer {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .projectCard {
+        flex: 1;
+    }
+
+}

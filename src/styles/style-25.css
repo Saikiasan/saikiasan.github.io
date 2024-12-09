@@ -33,6 +33,8 @@
     --neon-orange: #FF5F00;
 
     --red-404: #a00000;
+
+    --saikia-content-gap: 24px;
 }
 
 html {
@@ -114,6 +116,18 @@ main {
     margin-right: 24px;
     background: var(--d-10);
     border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        --s: 12px;
+        margin-top: var(--s);
+        margin-left: var(--s);
+        margin-right: var(--s);
+        margin-bottom: var(--saikia-content-gap);
+        background: var(--d-10);
+        border-radius: 12px;
+    }
 }
 
 .navbar .container-fluid {
