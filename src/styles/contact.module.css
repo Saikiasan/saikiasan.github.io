@@ -1,0 +1,54 @@
+.map {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+}
+
+.mapDiv {
+    padding: 12px;
+    border: 4px solid var(--d-30);
+    border-radius: 12px;
+
+}
+
+.contactFormContainer {
+    padding: 24px 12px;
+    border: 4px solid var(--d-30);
+    border-radius: 12px;
+    margin: var(--saikia-content-gap) 0px;
+}
+
+.contactFormContainer form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.contactFormContainer label {
+    display: inline-flex;
+    gap: 12px;
+    color: var(--o-65)
+}
+
+.contactFormContainer input {
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--d-30);
+}
+
+.contactFormContainer textarea {
+    background: none;
+    border: 2px solid var(--d-30);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.contactFormContainer button {
+    background: var(--o-60);
+    color: var(--d-06);
+    font-family: 'Archive';
+    flex: 1 1 100%;
+    padding: 12px;
+    margin: 12px 24px;
+}
