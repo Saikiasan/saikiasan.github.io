@@ -211,7 +211,7 @@
 }
 
 .mservice {
-    border: 2px solid var(--d-10);
+    border: 4px solid var(--d-10);
     padding: 12px;
     border-radius: 12px;
     display: flex;
