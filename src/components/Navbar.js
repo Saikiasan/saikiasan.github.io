@@ -103,17 +103,21 @@ const Header = ({ siteTitle }) => {
         style={{ margin: "0px 0px", padding: "12px" }}
       >
         <div className="navbar-brand">{siteTitle}</div>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbar_t"
-          aria-controls="navbar_t"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <Plate />
-        </button>
+        {isMobile ? (
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar_t"
+            aria-controls="navbar_t"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <Plate />
+          </button>
+        ) : (
+          ""
+        )}
         <div className="collapse navbar-collapse " id="navbar_t">
           {/* <form
             className="d-flex align-items-center justify-content-center ms-lg-auto me-lg-0 visually-hidden"
@@ -132,7 +136,10 @@ const Header = ({ siteTitle }) => {
             />
           </form> */}
           {isMobile ? (
-            <ul className="navbar-nav ms-lg-auto mb-2 mb-lg-0 gap-3 mt-5">
+            <ul
+              className="navbar-nav"
+              style={{ gap: "12px", margin: "24px 0px 12px 0px" }}
+            >
               {navbarLinks.map((link, index) => (
                 <li className="nav-item px-4">
                   <Link
