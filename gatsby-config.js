@@ -12,6 +12,7 @@ module.exports = {
     title: `Saikia Codes`,
     description: `Making business localization a successful story with tech stacks`,
     author: `Ankit Saikia`,
+    authorMail: `saikiacodes@gmail.com`,
   },
   plugins: [
     `gatsby-plugin-svgr`,
@@ -19,6 +20,14 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          camelCase: true,
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

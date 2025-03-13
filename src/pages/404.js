@@ -46,9 +46,12 @@ const NotFoundPage = () => (
           color: "var(--neon-green)",
           fontFamily: "MonoBold",
           fontSize: "1.5rem",
+          textAlign: "center",
         }}
       >
-        The page you looked up is not available or has been removed?
+        OOPS WE CAN'T FIND THE PAGE YA LOOKIN FOR!
+        <br />
+        It seems we ran at an invalid page, Go back to the previous page
       </p>
     </div>
   </Layout>

@@ -1,15 +1,15 @@
 import * as React from "react"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
-import * as style from "../styles/home.module.css"
+// import * as style from "../styles/home.module.css"
+import * as style from "../styles/sass/homepage.module.scss"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { GiSpiderWeb } from "react-icons/gi"
 import { IoLogoAndroid } from "react-icons/io"
-import { FaDigitalOcean, FaUikit } from "react-icons/fa6"
-import { TbBrandGoogleAnalytics } from "react-icons/tb"
-import { SiTensorflow } from "react-icons/si"
-import { BsArrowUpRight } from "react-icons/bs"
+import { FaCode, FaFaceAngry, FaFigma, FaSearchengin } from "react-icons/fa6"
+import { AiOutlineOpenAI } from "react-icons/ai"
+import { BsArrowUpRight, BsGraphUpArrow } from "react-icons/bs"
 import { useMediaQuery } from "react-responsive"
 
 const skills = [
@@ -37,52 +37,58 @@ const skills = [
 
 const services = [
   {
-    icon: <IoLogoAndroid className={style.reactIcons} />,
+    icon: <GiSpiderWeb className={style.reactIcons} />,
     name: "Web Development",
     description:
       "We specialize in building high-quality websites using modern technologies and best practices.",
-    price: "999",
-    link: "/services/web-development",
+    price: "599",
+    link: `https://api.whatsapp.com/send?phone=918257068226&text=${encodeURIComponent(
+      "Hello, I'm interested in Web Development. Please share more details.")}`,
   },
   {
-    icon: <GiSpiderWeb className={style.reactIcons} />,
+    icon: <IoLogoAndroid className={style.reactIcons} />,
     name: "App Development",
     description:
       "We develop high-quality mobile applications using React Native, Flutter, or Ionic.",
-    price: "1,499",
-    link: "/services/app-development",
+    price: "2,799",
+    link: `https://api.whatsapp.com/send?phone=918257068226&text=${encodeURIComponent(
+      "Hello, I'm interested in Android App Development. Please share more details.")}`,
   },
   {
-    icon: <FaDigitalOcean className={style.reactIcons} />,
+    icon: <BsGraphUpArrow className={style.reactIcons} />,
     name: "Digital Solutions",
     description:
       "We help businesses transform their digital presence by designing and implementing solutions.",
-    price: "1,299",
-    link: "/services/digital-solutions",
+    price: "1,399",
+    link: `https://api.whatsapp.com/send?phone=918257068226&text=${encodeURIComponent(
+      "Hello, I'm interested in Digital Solutions part plans. Please share more details.")}`,
   },
   {
-    icon: <FaUikit className={style.reactIcons} />,
+    icon: <FaFigma className={style.reactIcons} />,
     name: "UI - UX design",
     description:
       "We help businesses create visually appealing and user-friendly interfaces.",
-    price: "899",
-    link: "/services/ui-ux-design",
+    price: "299",
+    link: `https://api.whatsapp.com/send?phone=918257068226&text=${encodeURIComponent(
+      "Hello, I'm interested in UI/ UX design shwon at your Portfolio. Please share more details.")}`,
   },
   {
-    icon: <TbBrandGoogleAnalytics className={style.reactIcons} />,
+    icon: <FaSearchengin className={style.reactIcons} />,
     name: "Data Analysis",
     description:
       "We help businesses make data-driven decisions by analyzing and interpreting data.",
-    price: "3,100",
-    link: "/services/data-analysis",
+    price: "2,050",
+    link: `https://api.whatsapp.com/send?phone=918257068226&text=${encodeURIComponent(
+      "Hello, I'm interested in Data Analysis. Please share more details.")}`,
   },
   {
-    icon: <SiTensorflow className={style.reactIcons} />,
+    icon: <AiOutlineOpenAI className={style.reactIcons} />,
     name: "Machine Learning",
     description:
       "We help businesses create advanced machine learning models and algorithms.",
-    price: "5,490",
-    link: "/services/machine-learning",
+    price: "8,499",
+    link:`https://api.whatsapp.com/send?phone=918257068226&text=${encodeURIComponent(
+      "Hello, I'm interested in Machine learning. Please share more details.")}`,
   },
 ]
 
@@ -100,7 +106,7 @@ const BannerSkills = () => {
       ))}
       <Link to="/about/services" className="card text-decoration-none">
         <div className={`card-body ${style.bannerKnowMoreCardBody}`}>
-          <i className={`bi bi-arrow-up-right ${style.bannerKnowMoreIcon}`}></i>
+          <BsArrowUpRight className={style.bannerKnowMoreIcon} />
           <span className={style.bannerKnowMoreLink}>know more</span>
         </div>
       </Link>
@@ -120,7 +126,7 @@ const MobileBannerSkills = () => {
         </div>
       ))}
       <Link
-        to="/about/services"
+        to="/about/know-more"
         className={`card text-decoration-none ${style.mbannerKnowMoreLinkContainer}`}
       >
         <div className={`card-body ${style.mbannerKnowMoreCardBody}`}>
@@ -172,10 +178,19 @@ const ServicesProvided = () => {
                 <div className={style.serviceIcon}>{service.icon}</div>
                 <h3>{service.name}</h3>
               </div>
-              <Link to={service.link} className={style.serviceLink}>
+              {/* <Link to={service.link} className={style.serviceLink}>
                 <BsArrowUpRight className={style.serviceLinkIcon} />
                 <span className={style.serviceLinkSpan}>Book a call</span>
-              </Link>
+              </Link> */}
+              <a
+  href={service.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className={style.mserviceLink}
+>
+  <span className={style.mserviceLinkSpan}>Book a call</span>
+</a>
+
             </div>
             <p className={style.serviceDescription}>{service.description}</p>
             <span className={style.servicePrice}>
@@ -228,9 +243,13 @@ const MobileServicesProvided = () => {
               </span>
             </span>
             <p className={style.serviceDescription}>{service.description}</p>
-            <Link to={service.link} className={style.mserviceLink}>
+            {/* <Link to={service.link} className={style.mserviceLink}>
               <span className={style.mserviceLinkSpan}>Book a call</span>
-            </Link>
+            </Link> */}
+            <a href={service.link} target="_blank" rel="noopener noreferrer" 
+            className={style.mserviceLink}>
+              <span className={style.mserviceLinkSpan}>Book a call</span>
+            </a>
           </div>
         ))}
       </div>
@@ -261,35 +280,65 @@ const MobileHome = () => {
           <h2 className={style.bannerShowcaseH2}>
             programming new experiences
           </h2>
+          <hr/>
           {/* <GatsbyImage image={image} className={style.animImg} /> */}
+          <p className={style.serviceDescription} style={{color:"var(--o-80)"}}>
+            I create tools and solutions tailored to the situation and 
+            requirements, with the help of software and technology, I imrove
+            every task by 2X.
+          </p>
+          <p className={style.serviceDescription} style={{color:"var(--o-80)"}}>
+            If you got anything for me, then drop me a message. I will be pleased
+            to be of help. For things that may seem hard or impossible, lets
+            work on it together to make it happen. With the vast ocean of
+            overflowing tech stacks and information, achieving a successful
+            solution is just around the corner.
+          </p>
         </div>
       </div>
       <MobileBannerSkills />
     </div>
   )
 }
+
 const PcHome = ({ image }) => {
   return (
     <div className={style.section1}>
       <div className={`card ${style.banner}`}>
         <div className="card-body">
-          <h1 className={style.bannerShowcaseH1}>
-            Crafting Digital Experiences
-          </h1>
+          <h1 className={style.bannerShowcaseH1}>shaping new realities</h1>
           <h2 className={style.bannerShowcaseH2}>
-            programming new experiences
+            solving problems at code level
           </h2>
+          <p className={style.serviceDescription}>
+            I create tools and solutions tailored to the situation and
+            requirements, with the help of software and technology, I imrove
+            every task by 2X.
+          </p>
+          <p className={style.serviceDescription}>
+            If you got anything for me, then drop me a{" "}
+            <a href="mailto:saikiacodes@gmail.com">mail</a>. I will be pleased
+            to be of help. For things that may seem hard or impossible, lets
+            work on it together to make it happen. With the vast ocean of
+            overflowing tech stacks and information, achieving a successful
+            solution is just around the corner.
+          </p>
         </div>
       </div>
       <div className={`card ${style.profileImg}`}>
-        <div className="card-body">
-          <GatsbyImage image={image} className={style.animImg} />
+        <div className={`card-body p-4`}>
+          {/* <GatsbyImage image={image} className={style.animImg} />*/}
+          <p className={style.serviceDescription}>
+            There will be many more oppurtunities in life for you to be more and
+            more productive in what you do. This is a given.
+          </p>
         </div>
       </div>
       <BannerSkills />
     </div>
   )
 }
+
 const IndexPage = ({ data }) => {
   const isMobile = useMediaQuery({ maxWidth: 768 })
   const image = getImage(data.file.childImageSharp)

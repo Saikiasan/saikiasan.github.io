@@ -1,8 +1,8 @@
 // src/pages/about.js
 import * as React from "react"
-import Layout from "../components/Layout"
-import * as styles from "../styles/about-page.module.css"
-import Seo from "../components/Seo"
+import Layout from "../../components/Layout"
+import * as styles from "../../styles/about-page.module.css"
+import Seo from "../../components/Seo"
 
 const skills = [
   "HTML",
@@ -30,7 +30,7 @@ const skills = [
   "Figma",
   "Canva",
   "Photoshop",
-  "DaVinci",
+  "Video editing",
 ]
 
 const textSections = [
@@ -83,10 +83,14 @@ export default function About() {
             <div className={`card-body`}>
               <p className={`${styles.descriptionText}`}>
                 Hello! I’m <b>Ankit Saikia</b>, a passionate and dedicated
-                developer with a focus on frontend technologies. I completed my
-                Bachelor of Computer Applications (BCA) in 2023 and have since
-                been honing my skills in various areas of software
-                development...
+                developer with a focus on Frontend.
+              </p>
+              <p className={styles.descriptionText}>
+                Currently working as a Freelance developer, I honed my
+                programming and design to achieve a satisfactory outcome. Having
+                experiences in several Frontend & Backend tech stacks,
+                integrating the best tools and technologies to completely carry
+                out a given task at hand.
               </p>
             </div>
           </div>

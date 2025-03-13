@@ -30,7 +30,7 @@ export default function Contact() {
 
         <div className={s.mapDiv}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d236.69232459831983!2d95.7755697466052!3d27.92803691414651!2m3!1f352.36185921479955!2f27.47165337293109!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x373e53a012d61579%3A0xf657ad8af7abadaa!2sMellokits%20Palace!5e1!3m2!1sen!2sin!4v1734076673755!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.8761136777835!2d95.77263087458618!3d27.929107876056154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x373e53005db75f2b%3A0xc2136a2075681b22!2sSaikia%20Codes!5e1!3m2!1sen!2sin!4v1736691114136!5m2!1sen!2sin"
             style={{ border: "0" }}
             className={s.map}
             allowfullscreen=""

@@ -142,16 +142,15 @@
     color: var(--g-40)
 }
 
-
-
 .bannerKnowMoreIcon {
-    --s: 40px;
-    font-size: 16px;
-    border-radius: 50%;
+    --s: 30px;
+    /* font-size: 16px; */
+    /* border-radius: 50%; */
     color: var(--o-65);
     width: var(--s);
     height: var(--s);
-    background: var(--d-06);
+    /* background: var(--d-06); */
+    position: inherit;
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -4,14 +4,8 @@ import { FaFaceAngry } from "react-icons/fa6"
 
 export default function Careers() {
   return (
-    <Layout>
+    <Layout style={{color:'var(--o-80)'}}>
       <h1>Careers</h1>
-      <FaFaceAngry
-        style={{
-          width: "300px",
-          height: "300px",
-        }}
-      />
       <p>
         I'm always looking for new opportunities to grow and improve my skills.
         If you're interested in working with me, please don't hesitate to reach

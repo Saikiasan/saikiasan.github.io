@@ -9,4 +9,21 @@ code {
 
 .card p {
     line-height: 1.5;
+    color: var(--g-90)
+}
+
+blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--o-60);
+    border-left: 4px solid var(--o-60);
+    /* Blue accent color */
+    margin: 20px 0;
+    padding: 10px 10px;
+    /* background-color: #f9f9f9; */
+    /* Light gray background */
+}
+
+li {
+    color: var(--g-80);
 }
