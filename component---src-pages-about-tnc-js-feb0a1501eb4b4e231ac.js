@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksaikiacodes_portfolio=self.webpackChunksaikiacodes_portfolio||[]).push([[186],{9606:function(e,l,t){t.r(l);var n=t(6540),o=t(1138);l.default=function(){return n.createElement(o.A,null,n.createElement("p",null,"Hello there"))}}}]);
+//# sourceMappingURL=component---src-pages-about-tnc-js-feb0a1501eb4b4e231ac.js.map
