@@ -1,31 +1,23 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { FaFaceAngry } from "react-icons/fa6"
+import * as styles from "../styles/sass/about-page.module.scss"
 
 export default function Careers() {
   return (
-    <Layout style={{color:'var(--o-80)'}}>
-      <h1>Careers</h1>
-      <p>
-        I'm always looking for new opportunities to grow and improve my skills.
-        If you're interested in working with me, please don't hesitate to reach
-        out.
-      </p>
-      <p>
-        I'm currently open to full-time or part-time roles in the following
-        areas:
-      </p>
-      <ul>
-        <li>Frontend development</li>
-        <li>Backend development</li>
-        <li>Product management</li>
-        <li>UX/UI design</li>
-      </ul>
-      <p>
-        Please feel free to reach out to me at saikia.kim[at]gmail.com or via
-        LinkedIn at https://www.linkedin.com/in/saikia-kim-5b899b1b2/
-      </p>
-      <p>Thank you for considering me for your position.</p>
+    <Layout>
+      <h1 className={styles.pageTitle}>Career opportunities</h1>
+      <div className="container-fluid text-light py-4" style={{ paddingTop: "12px", marginBottom: "12px" }}>
+        <div className="card col-lg-5 mx-auto border-1 rounded-4 border-danger">
+          <div className="card-body text-center">
+            <h2 className="h2" style={{ color: "var(--o-80)" }}>
+              We are not hiring at the moment. Please check back later.
+            </h2>
+            <p className='lead'>
+               We apologize for any inconvenience caused.
+            </p>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }

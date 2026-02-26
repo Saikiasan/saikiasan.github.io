@@ -1,8 +1,7 @@
-// src/pages/about.js
 import * as React from "react"
 import Layout from "../../components/Layout"
-import * as styles from "../../styles/about-page.module.css"
 import Seo from "../../components/Seo"
+import * as styles from "../../styles/sass/about-page.module.scss"
 
 const skills = [
   "HTML",

@@ -9,6 +9,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.js"
 
+
 // gatsby-browser.js
 export const onRouteUpdate = () => {
   window.scrollTo(0, 0);

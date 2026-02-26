@@ -1,7 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
-// import "../styles/footer.css"
-import * as s from "../styles/footer.module.css"
+import * as s from "../styles/sass/footer.module.scss"
 import { BiLogoFacebookSquare } from "react-icons/bi"
 import {
   BsArrowUpRight,
@@ -10,7 +9,6 @@ import {
   BsLinkedin,
   BsWhatsapp,
 } from "react-icons/bs"
-import { useMediaQuery } from "react-responsive"
 
 const socialMediaLinks = [
   {
@@ -71,23 +69,21 @@ const SocialCards = () => {
     <div className={s.socialCardContainer}>
       {socialMediaLinks.map((link, index) => (
         <div
-          className={`card btn justify-content-center align-items-center ${s.socialCard} ${s.transitionAll500ms}`}
+          className={`card btn justify-content-center align-items-center ${s.socialCard}`}
           key={index}
         >
           <div className={`card-body ${s.socialCardBody}`}>
-            <div className="top justify-content-between align-items-center">
+            <div className="top d-flex justify-content-between align-items-center w-100">
               {link.icon}
               <Link
                 to={link.url}
                 target="_blank"
                 className={s.socialCardLink}
-                style={{ width: "40px", height: "40px" }}
               >
-                {/* <i className="bi bi-arrow-up-right"></i> */}
                 <BsArrowUpRight className={s.arrowIcon} />
               </Link>
             </div>
-            <div className="details">
+            <div className={s.socialCardDetails}>
               <h5 className={s.socialCardTitle}>{link.name}</h5>
               <div className={s.socialCardText}>{link.cap}</div>
             </div>
@@ -98,31 +94,19 @@ const SocialCards = () => {
   )
 }
 
-const MobileSocialCards = () => {
-  return (
-    <div className={s.mSocialCardContainer}>
-      {socialMediaLinks.map((link, index) => (
-        <Link to={link.url} target="_blank" className={s.mSocialCardLink}>
-          {link.icon}
-        </Link>
-      ))}
-    </div>
-  )
-}
-
 const Navigation = () => {
   return (
     <div className={s.navigationContainer}>
       <div className={`card ${s.navigationCard}`}>
-        <div className="card-body row justify-content-center">
-          <div className={`col ${s.navigationColumn}`}>
-            <h5 className={`card-title ${s.navigationListTitle}`}>Home</h5>
+        <div className={`card-body ${s.navigationBody}`}>
+          <div className={`${s.navigationColumn}`}>
+            <h5 className={`${s.navigationListTitle}`}>Home</h5>
             <ul className="nav flex-column">
               {navigationLinks.site.map((link, index) => (
                 <li className="nav-item" key={index}>
                   <Link
                     to={link.url}
-                    className={`nav-link ${s.navigationLink}`}
+                    className={`${s.navigationLink}`}
                   >
                     {link.name}
                   </Link>
@@ -130,14 +114,14 @@ const Navigation = () => {
               ))}
             </ul>
           </div>
-          <div className={`col ${s.navigationColumn}`}>
-            <h5 className={`card-title ${s.navigationListTitle}`}>Services</h5>
+          <div className={`${s.navigationColumn}`}>
+            <h5 className={`${s.navigationListTitle}`}>Services</h5>
             <ul className="nav flex-column">
               {navigationLinks.services.map((link, index) => (
                 <li className="nav-item" key={index}>
                   <Link
                     to={link.url}
-                    className={`nav-link ${s.navigationLink}`}
+                    className={`${s.navigationLink}`}
                   >
                     {link.name}
                   </Link>
@@ -145,14 +129,14 @@ const Navigation = () => {
               ))}
             </ul>
           </div>
-          <div className={`col ${s.navigationColumn}`}>
-            <h5 className={`card-title ${s.navigationListTitle}`}>Projects</h5>
+          <div className={`${s.navigationColumn}`}>
+            <h5 className={`${s.navigationListTitle}`}>Projects</h5>
             <ul className="nav flex-column">
               {navigationLinks.projects.map((link, index) => (
                 <li className="nav-item" key={index}>
                   <Link
                     to={link.url}
-                    className={`nav-link ${s.navigationLink}`}
+                    className={`${s.navigationLink}`}
                   >
                     {link.name}
                   </Link>
@@ -160,14 +144,14 @@ const Navigation = () => {
               ))}
             </ul>
           </div>
-          <div className={`col ${s.navigationColumn}`}>
-            <h5 className={`card-title ${s.navigationListTitle}`}>Blogs</h5>
+          <div className={`${s.navigationColumn}`}>
+            <h5 className={`${s.navigationListTitle}`}>Blogs</h5>
             <ul className="nav flex-column">
               {navigationLinks.blogs.map((link, index) => (
                 <li className="nav-item" key={index}>
                   <Link
                     to={link.url}
-                    className={`nav-link ${s.navigationLink}`}
+                    className={`${s.navigationLink}`}
                   >
                     {link.name}
                   </Link>
@@ -180,89 +164,16 @@ const Navigation = () => {
     </div>
   )
 }
-const MobileNavigation = () => {
-  return (
-    <div className={s.mNavigationContainer}>
-      <div className={`card ${s.mNavigationCard}`}>
-        <div className="card-body d-flex justify-content-center flex-wrap">
-          <div className={` ${s.mNavigationColumn}`}>
-            <h5 className={`${s.mNavigationListTitle}`}>Home</h5>
-            <ul className="nav flex-column">
-              {navigationLinks.site.map((link, index) => (
-                <li className="nav-item" key={index}>
-                  <Link
-                    to={link.url}
-                    className={`nav-link ${s.mNavigationLink}`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={` ${s.mNavigationColumn}`}>
-            <h5 className={`${s.mNavigationListTitle}`}>Services</h5>
-            <ul className="nav flex-column">
-              {navigationLinks.services.map((link, index) => (
-                <li className="nav-item" key={index}>
-                  <Link
-                    to={link.url}
-                    className={`nav-link ${s.mNavigationLink}`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={` ${s.mNavigationColumn}`}>
-            <h5 className={`${s.mNavigationListTitle}`}>Projects</h5>
-            <ul className="nav flex-column">
-              {navigationLinks.projects.map((link, index) => (
-                <li className="nav-item" key={index}>
-                  <Link
-                    to={link.url}
-                    className={`nav-link ${s.mNavigationLink}`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={` ${s.mNavigationColumn}`}>
-            <h5 className={`${s.mNavigationListTitle}`}>Blogs</h5>
-            <ul className="nav flex-column">
-              {navigationLinks.blogs.map((link, index) => (
-                <li className="nav-item" key={index}>
-                  <Link
-                    to={link.url}
-                    className={`nav-link ${s.mNavigationLink}`}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
+
 const Newsletter = () => {
   return (
     <div className={s.newsLetterContainer}>
       <div className={`card ${s.newsLetterCard}`}>
         <div className="card-body">
-          <h5 className="lead" style={{ color: "var(--g-80)" }}>
-            Newsletter
-          </h5>
-          <div className="d-flex justify-content-between">
-            <h4 className="text-uppercase" style={{ fontFamily: "Avalon" }}>
-              subscribe to my newsletters
-            </h4>
-            <form className="d-inline-flex">
+          <h5 className={s.newsLetterTitle}>Newsletter</h5>
+          <div className={s.newsletterContent}>
+            <h4 className={s.newsLetterText}>subscribe to my newsletters</h4>
+            <form className={s.newsLetterForm}>
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -284,74 +195,21 @@ const Newsletter = () => {
     </div>
   )
 }
-const MobileNewsletter = () => {
-  return (
-    <div className={s.mNewsLetterContainer}>
-      <div className={`card ${s.mNewsLetterCard}`}>
-        <div className="card-body">
-          <h5 className={s.mNewsLetterTitle}>Newsletter</h5>
-          <h4 className={s.mNewsLetterText}>subscribe to my newsletters</h4>
-          <form className={s.mNewsLetterForm}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className={s.mNewsLetterInput}
-            />
-            <button
-              type="submit"
-              className={`btn rounded-circle ${s.mNewsLetterLink} ${s.transitionAll500ms}`}
-            >
-              <BsArrowUpRight
-                className={s.arrowIcon}
-                style={{
-                  color: "var(--o-80)",
-                }}
-              />
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  )
-}
-const Copyright = siteAuthor => {
+
+const Copyright = ({ author }) => {
   return (
     <div className={s.copyright}>
       <div className="card">
         <div className={`card-body ${s.copyrightCardBody}`}>
-          <p className={s.left}>
-            <i className="bi bi-c-circle"></i> {new Date().getFullYear()}{" "}
-            {siteAuthor.author} All rights reserved.
+          <p className={s.copyrightText}>
+            &copy; {new Date().getFullYear()} {author}. All rights reserved.
           </p>
-          <p className={s.right}>
-            <Link to="/tnc" className="tnc">
+          <div className={s.copyrightLinks}>
+            <Link to="/about/tnc" className={s.tnc}>
               Terms & Conditions
             </Link>
-            <div className="vr mx-2"></div>
-            <Link to="/privacy-policy" className="tnc">
-              Privacy Policy
-            </Link>
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
-const MobileCopyright = siteAuthor => {
-  return (
-    <div className={s.copyright}>
-      <div className="card">
-        <div className={`card-body ${s.mCopyrightCardBody}`}>
-          <p className={s.mCopyrightTxt}>
-            &copy; {new Date().getFullYear()} {siteAuthor.author}. All rights
-            reserved.
-          </p>
-          <div className={s.mCopyrightLinkContainer}>
-            <Link to="/tnc" className={s.mCopyrightLinks}>
-              Terms & Conditions
-            </Link>
-            <hr />
-            <Link to="/privacy-policy" className={s.mCopyrightLinks}>
+            <div className="vr mx-2" style={{ height: "15px" }}></div>
+            <Link to="/privacy-policy" className={s.tnc}>
               Privacy Policy
             </Link>
           </div>
@@ -362,95 +220,37 @@ const MobileCopyright = siteAuthor => {
 }
 
 export default function Footer({ siteAuthor }) {
-  const isMobile = useMediaQuery({ maxWidth: 768 })
-  return isMobile ? (
-    <MobileFooter siteAuthor={siteAuthor} />
-  ) : (
-    <PcFooter siteAuthor={siteAuthor} />
-  )
-}
-
-const MobileFooter = ({ siteAuthor }) => {
-  return (
-    <footer className={s.mFooter}>
-      <div
-        className="card"
-        style={{
-          padding: "12px",
-          background: "var(--o-60)",
-        }}
-      >
-        <div className="card-body">
-          <h2 className={s.mPromoCardTitle}>Still thinking?</h2>
-          <p className={`lead ${s.mPromoCardText}`}>
-            Turn your ideas into reality. You are just a call away anyways. Why
-            hesitate, lets work together, achieve a great successful result.
-          </p>
-          <Link
-            to="/contact/"
-            className={`text-uppercase btn w-100 ${s.customBtn_12px}  ${s.transitionAll500ms} d-inline-flex justify-content-center`}
-            style={{
-              background: "var(--d-06)",
-              color: "var(--0-90)",
-            }}
-          >
-            Get in touch
-            <BsArrowUpRight
-              className={s.arrowIcon}
-              style={{ position: "relative", marginLeft: "12px" }}
-            />
-          </Link>
-        </div>
-      </div>
-      <div className={s.mGrid_1}>
-        <MobileSocialCards />
-        <MobileNavigation />
-        <div className={s.mGrid_2}>
-          <MobileNewsletter />
-          <MobileCopyright author={siteAuthor} />
-        </div>
-      </div>
-    </footer>
-  )
-}
-
-const PcFooter = ({ siteAuthor }) => {
   return (
     <footer className={s.footer}>
-      <div
-        className="card"
-        style={{
-          padding: "24px",
-          background: "var(--o-60)",
-        }}
-      >
+      <div className={`card ${s.promoCard}`}>
         <div className="card-body">
           <h2 className={s.promoCardTitle}>ready to upgrade your business?</h2>
           <p className={`lead ${s.promoCardText}`}>
-            Take the first step towards digital success with me.
+            Take the first step towards digital success with me. Turn your ideas into reality.
           </p>
           <Link
             to="/contact/"
-            className={`text-uppercase btn ${s.customBtn_12px} end-0 bottom-0 position-absolute ${s.transitionAll500ms}`}
+            className={`text-uppercase btn ${s.customBtn_12px} ${s.transitionAll500ms}`}
             style={{
               background: "var(--d-06)",
               color: "var(--0-90)",
-              marginRight: "calc(24px * 1.5)",
-              marginBottom: "calc(24px * 1.5)",
+              marginTop: "12px",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px"
             }}
           >
-            Get in touch &nbsp;&nbsp;
+            Get in touch
             <BsArrowUpRightCircleFill
               className={s.arrowIcon}
-              style={{ position: "relative" }}
             />
           </Link>
         </div>
       </div>
-      <div className={s.grid_1}>
+      <div className={s.grid1}>
         <SocialCards />
         <Navigation />
-        <div className={s.grid_2}>
+        <div className={s.grid2}>
           <Newsletter />
           <Copyright author={siteAuthor} />
         </div>

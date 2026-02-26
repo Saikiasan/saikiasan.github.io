@@ -1,0 +1,123 @@
+@use "colors" as c;
+@import 'functions';
+
+.container {
+    padding: 24px 12px;
+
+    @media (min-width: 768px) {
+        padding: 48px 24px;
+    }
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: start;
+    align-items: stretch;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+}
+
+.projectCard {
+    text-decoration: none;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    transition: all 300ms ease-in-out;
+    background: var(--d-10);
+    border: 1px solid var(--d-20);
+    border-radius: 12px;
+    overflow: hidden;
+
+    &:hover {
+        border-color: var(--o-60);
+        transform: translateY(-4px);
+    }
+
+    @media (min-width: 768px) {
+        flex: 1 1 calc(50% - 12px);
+    }
+
+    @media (min-width: 1024px) {
+        flex: 1 1 calc(33.333% - 16px);
+    }
+}
+
+.projectCardBody {
+    padding: 24px;
+
+    @media (min-width: 768px) {
+        padding: 32px 24px;
+    }
+}
+
+/* TYPOGRAPHY */
+.projectHeading {
+    color: var(--o-65);
+    font-family: "Archive";
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    text-align: center;
+    padding-bottom: 24px;
+    margin: 0;
+
+    @media (min-width: 768px) {
+        font-size: 4rem;
+        padding-bottom: 48px;
+    }
+}
+
+.pTitle {
+    font-size: 1.5rem;
+    font-family: 'IntroCd';
+    color: var(--o-60);
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    // Remove text-wrap: nowrap for mobile
+    white-space: normal; 
+
+    @media (min-width: 768px) {
+        font-size: 2rem;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 2px;
+        background-color: var(--neon-orange);
+        margin: 12px auto 0;
+    }
+}
+
+.pStack {
+    font-size: 0.9rem;
+    font-weight: 800;
+    font-family: 'MonoLight';
+    color: var(--neon-green);
+    text-align: center;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @media (min-width: 768px) {
+        font-size: 1rem;
+    }
+}
+
+.pExcerpt {
+    font-size: 0.95rem;
+    font-family: 'MonoMedium';
+    color: var(--g-80);
+    line-height: 1.6;
+    margin: 0;
+
+    @media (min-width: 768px) {
+        font-size: 1.1rem;
+    }
+}

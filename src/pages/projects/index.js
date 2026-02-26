@@ -1,17 +1,17 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../../components/Layout"
-import * as styles from "../../styles/project-home.module.css"
+import * as styles from "../../styles/sass/project-home.module.scss"
 
 const Projects = ({ data }) => {
   const projects = data.allMarkdownRemark.nodes
 
   return (
     <Layout>
-      <div className="container-fluid py-3">
-        <h1 className={`${styles.projectHeading}`}>Projects at a glance</h1>
+      <div className={styles.container}>
+        <h1 className={styles.projectHeading}>Projects at a glance</h1>
 
-        <div className={`${styles.projectContainer}`}>
+        <div className={styles.projectContainer}>
           {projects.map(project => (
             <Link
               to={`/projects/${project.frontmatter.slug}`}
@@ -21,7 +21,7 @@ const Projects = ({ data }) => {
               <div className={`card-body ${styles.projectCardBody}`}>
                 <h2 className={styles.pTitle}>{project.frontmatter.title}</h2>
                 <p className={styles.pStack}>{project.frontmatter.stack}</p>
-                <p className={styles.pExcerpt}>{project.excerpt}</p>
+                <div className={styles.pExcerpt}>{project.excerpt}</div>
               </div>
             </Link>
           ))}

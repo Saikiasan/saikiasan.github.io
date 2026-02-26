@@ -1,0 +1,397 @@
+@use "colors" as c;
+@import 'functions';
+
+.footer {
+    --fm: 12px;
+    margin: var(--saikia-content-gap) var(--fm);
+    
+    @media (min-width: 768px) {
+        --fm: 24px;
+        margin: 0 var(--fm) var(--fm) var(--fm);
+    }
+}
+
+.transitionAll500ms {
+    transition: all 500ms ease-in-out;
+}
+
+.transitionAll500ms:hover {
+    background: var(--d-06);
+    color: var(--o-60);
+}
+
+.customBtn_12px {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.arrowIcon {
+    --is: 1.2rem;
+    width: var(--is);
+    height: var(--is);
+    position: relative;
+}
+
+.grid1 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 12px;
+
+    @media (min-width: 1024px) {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.grid2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-content: stretch;
+
+    @media (min-width: 1024px) {
+        grid-row: 2 / span 1;
+        grid-column: 3 / span 3;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/* promo-card */
+.promoCard {
+    padding: 12px;
+    background: var(--o-60);
+
+    @media (min-width: 768px) {
+        padding: 24px;
+    }
+}
+
+.promoCardTitle {
+    color: var(--d-06);
+    letter-spacing: 2px;
+    font-family: 'Archive'; 
+    font-size: 2em;
+    text-transform: uppercase;
+
+    @media (min-width: 768px) {
+        font-family: 'MonoMedium';
+        font-size: 3em;
+    }
+}
+
+.promoCardText {
+    color: var(--d-06);
+    font-size: 1.2rem;
+    font-family: 'Avalon';
+
+    @media (min-width: 768px) {
+        font-size: 2rem;
+    }
+}
+
+/* social-cards */
+.socialCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 0;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+        grid-row: 1 / span 2;
+        grid-column: 1 / span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        padding: 0;
+    }
+}
+
+.socialCard {
+    background: var(--d-10);
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid var(--d-20);
+    flex: 1 1 calc(50% - 12px);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+
+    @media (min-width: 1024px) {
+        flex: none;
+        display: block; 
+        position: relative;
+    }
+}
+
+.socialCardIcon {
+    --is: 2.5rem;
+    width: var(--is);
+    height: var(--is);
+    color: var(--o-60);
+
+    @media (min-width: 1024px) {
+        --is: 5rem;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+    }
+}
+
+.socialCardLink {
+    display: none; 
+
+    @media (min-width: 1024px) {
+        font-size: 20px;
+        position: absolute;
+        top: 40%;
+        right: 15%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--o-80);
+        border: 1px solid var(--d-20);
+        transition: all 300ms ease-in-out;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.socialCard:hover .socialCardLink {
+    color: var(--o-60);
+    border: 2px solid var(--o-80);
+}
+
+.socialCardTitle {
+    display: none; 
+
+    @media (min-width: 1024px) {
+        display: block;
+        text-align: start;
+        font-family: 'CodePro';
+        font-weight: 800;
+        font-size: 24px;
+        letter-spacing: 2px;
+        position: absolute;
+        bottom: 15%;
+        left: 15%;
+    }
+}
+
+.socialCardText {
+    display: none; 
+
+    @media (min-width: 1024px) {
+        display: block;
+        font-size: 14px;
+        position: absolute;
+        bottom: 10%;
+        left: 15%;
+    }
+}
+
+.socialCardBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.socialCardDetails {
+    display: none; // Default hidden for mobile
+
+    @media (min-width: 1024px) {
+        display: block; // Show only on Desktop
+    }
+}
+
+/* newsletter */
+.newsLetterContainer {
+    justify-content: center;
+    flex: 1 1 100%;
+}
+
+.newsLetterCard {
+    padding: 24px;
+
+    @media (min-width: 768px) {
+        padding: 36px;
+    }
+}
+
+.newsLetterTitle {
+    color: var(--g-80);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.newsletterContent {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.newsLetterText {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: 'MonoMedium';
+    margin: 0;
+
+    @media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
+}
+
+.newsLetterForm {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newsLetterInput {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--g-50);
+    outline: none;
+    transition: border-bottom-color 0.3s;
+    flex: 1;
+    color: var(--white);
+}
+
+.newsLetterInput:focus {
+    border-bottom: 1px solid var(--o-60);
+}
+
+.newsLetterLink {
+    --s: 2.5rem;
+    width: var(--s);
+    height: var(--s);
+    padding: 12px;
+    border: 1px solid var(--d-30);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* navigation */
+.navigationContainer {
+    flex: 1;
+
+    @media (min-width: 1024px) {
+        grid-row: 1 / span 1;
+        grid-column: 3 / span 3;
+        justify-content: center;
+        align-content: center;
+    }
+}
+
+.navigationCard {
+    padding: 12px;
+
+    @media (min-width: 768px) {
+        padding: 20px;
+    }
+}
+
+.navigationBody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navigationColumn {
+    min-width: 120px;
+    flex: 1 1 calc(50% - 24px);
+
+    @media (min-width: 768px) {
+        flex: 1;
+    }
+}
+
+.navigationListTitle {
+    font-family: 'Archive';
+    color: var(--o-80);
+    margin-bottom: 12px;
+}
+
+.navigationLink {
+    color: var(--g-50);
+    font-family: 'Avalon';
+    font-size: 14px;
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 4px 0;
+    display: block;
+
+    @media (min-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+/* copyrights */
+.copyright {
+    flex: 1 1 100%;
+    margin-top: 12px;
+}
+
+.copyrightCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        text-align: left;
+    }
+}
+
+.copyrightText {
+    font-size: 12px;
+    font-family: 'MonoLight';
+    color: var(--g-70);
+    margin: 0;
+
+    @media (min-width: 768px) {
+        font-size: 14px;
+    }
+}
+
+.copyrightLinks {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+}
+
+.tnc {
+    text-decoration: none;
+    color: var(--g-50);
+    font-family: 'MonoLight';
+    font-size: 12px;
+
+    @media (min-width: 768px) {
+        font-size: 14px;
+    }
+}
