@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunksaikiacodes_portfolio=self.webpackChunksaikiacodes_portfolio||[]).push([[457],{8589:function(e,t,n){n.r(t),n.d(t,{default:function(){return l}});var a=n(6540),r=n(6171);function l(e){let{data:{markdownRemark:t}}=e;return a.createElement(r.A,null,a.createElement("div",{className:"container-fluid"},a.createElement("div",{dangerouslySetInnerHTML:{__html:t.html}})))}}}]);
-//# sourceMappingURL=component---src-templates-content-page-js-e658a0072d959d9cfda8.js.map
