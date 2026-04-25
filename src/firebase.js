@@ -1,25 +1,35 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getFunctions } from "firebase/functions";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC-hG6gnR1WzEVJEQkwquCRv6xSDTNKaqk",
-  authDomain: "saikiacode.firebaseapp.com",
-  projectId: "saikiacode",
-  storageBucket: "saikiacode.firebasestorage.app",
-  messagingSenderId: "812199410355",
-  appId: "1:812199410355:web:0a936a179680d669a80ec6",
-  measurementId: "G-72WXC29G0N"
+  apiKey: process.env.GATSBY_FIREBASE_API_KEY,
+  authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.GATSBY_FIREBASE_APP_ID,
+  measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
+  databaseURL: process.env.GATSBY_FIREBASE_DATABASE_URL
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Cloud Firestore and get a reference to the service
+// Initialize Cloud Firestore
 export const db = getFirestore(app);
 
-// Initialize Cloud Storage and get a reference to the service
+// Initialize Cloud Storage
 export const storage = getStorage(app);
+
+// Initialize Auth
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+
+// Initialize Functions
+export const functions = getFunctions(app);
 
 export default app;

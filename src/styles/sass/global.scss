@@ -115,10 +115,35 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 600;
   
   &:hover {
     box-shadow: var(--nm-inset-sm);
     transform: scale(0.98);
+  }
+}
+
+.neu-input {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--nm-inset-sm);
+  color: var(--text-primary);
+  padding: 0.8rem 1.2rem;
+  width: 100%;
+  transition: var(--transition-norm);
+  outline: none;
+  
+  &:focus {
+    box-shadow: var(--nm-outset-sm);
+    border-color: var(--accent-primary);
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
   }
 }
 

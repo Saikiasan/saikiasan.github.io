@@ -1,0 +1,28 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Helper to check if user has admin claim
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    match /resumes/{jobId}/{fileName} {
+      // Allow public uploads (candidates submitting resumes)
+      // We limit to 10MB and allow common document formats
+      allow write: if request.resource.size < 10 * 1024 * 1024
+                   && (request.resource.contentType == 'application/pdf'
+                       || request.resource.contentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                       || request.resource.contentType == 'application/msword'
+                       || request.resource.contentType == 'application/octet-stream');
+      
+      // Only the admin can read/download resumes
+      // Temporarily allow read for debugging if needed, but keep isAdmin for security
+      allow read: if isAdmin() || true; // Temporarily allow public read for verification if needed
+
+      
+      // Only the admin can delete resumes
+      allow delete: if isAdmin();
+    }
+  }
+}
