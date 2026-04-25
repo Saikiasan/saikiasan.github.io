@@ -1,30 +1,58 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/Layout"
 import * as s from "../styles/contact.module.css"
+import { db } from "../firebase"
+import { collection, addDoc } from "firebase/firestore"
 
 export default function Contact() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [status, setStatus] = useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus("Sending...")
+    try {
+      await addDoc(collection(db, "contacts"), {
+        name,
+        email,
+        message,
+        timestamp: new Date()
+      })
+      setStatus("Message sent successfully!")
+      setName("")
+      setEmail("")
+      setMessage("")
+    } catch (error) {
+      console.error("Error adding document: ", error)
+      setStatus("Failed to send message. Please try again.")
+    }
+  }
+
   return (
     <Layout>
       <div className="container-fluid">
         <h1 style={{ color: "var(--o-60)" }}>Contact</h1>
 
         <div className={s.contactFormContainer}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <label>
               Name:
-              <input type="text" placeholder="Enter your name" required />
+              <input type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} required />
             </label>
             <label>
               Email:
-              <input type="email" placeholder="Enter your email" required />
+              <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             </label>
             <label>
               Message:
-              <textarea placeholder="Write your message"></textarea>
+              <textarea placeholder="Write your message" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
             </label>
             <button className="btn" type="submit">
               let it rain
             </button>
+            {status && <p style={{ marginTop: "12px", color: "var(--o-65)", textAlign: "center" }}>{status}</p>}
           </form>
         </div>
 
