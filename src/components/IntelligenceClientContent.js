@@ -1,76 +1,99 @@
 import * as React from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
+import { Link } from "gatsby"
 
-const IntelligenceClientContent = () => {
+const IntelligenceClientContent = ({ blogs }) => {
   const { t } = useTranslation()
-  const { scrollYProgress } = useScroll()
-  const headerY = useTransform(scrollYProgress, [0, 0.2], [0, -50])
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   return (
     <>
         <motion.div 
-            style={{ y: headerY, opacity }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
             className="text-center mb-5"
         >
-          <span className="text-gradient small text-uppercase fw-bold" style={{ letterSpacing: '0.3em' }}>{t('intelligence.tag')}</span>
-          <h1 className="display-2 mt-3" style={{ fontWeight: 800 }}>{t('intelligence.title')}</h1>
-          <p className="text-secondary lead mt-4 mx-auto" style={{ maxWidth: '700px' }}>
+          <span className="small text-uppercase fw-bold mb-3 d-block" style={{ letterSpacing: '0.3em', color: 'var(--accent-primary)' }}>{t('intelligence.tag')}</span>
+          <h1 className="display-3 mt-3 fw-bold">{t('intelligence.title')}</h1>
+          <p className="text-muted lead mt-4 mx-auto" style={{ maxWidth: '700px', lineHeight: 1.6 }}>
             {t('intelligence.subtitle')}
           </p>
         </motion.div>
 
         <section className="mt-5">
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="mb-5"
-            >
-                <div className="glass p-5 mb-4 border-accent">
-                    <h2 className="h3 mb-4 text-white">I. The End of the Input/Output Era</h2>
-                    <p className="lead text-secondary" style={{ lineHeight: 1.8 }}>
-                        In 2026, the traditional prompt-and-response cycle is a legacy pattern. Today's systems operate as <b>Active Agents</b>. 
-                        They don't wait for instructions; they exist in a continuous state of environmental awareness, preemptively adjusting digital landscapes to meet human goals before they are even articulated.
-                    </p>
-                </div>
-            </motion.div>
+            {[
+                { 
+                    id: "I", 
+                    title: "The End of the Input/Output Era", 
+                    content: "In 2026, the traditional prompt-and-response cycle is a legacy pattern. Today's systems operate as Active Agents. They don't wait for instructions; they exist in a continuous state of environmental awareness." 
+                },
+                { 
+                    id: "II", 
+                    title: "Liquid Intelligence Interfaces", 
+                    content: "The interfaces I build are not fixed. They are Neural Constructs. They reorganize their structure based on session-intent and cognitive load, morphing into the most efficient version for every interaction." 
+                },
+                { 
+                    id: "III", 
+                    title: "The New Developer Stewardship", 
+                    content: "Programming in the Agentic Era is about Alignment. I architect the ethical guardrails and semantic foundations that allow agents to act with high fidelity and zero-harm." 
+                }
+            ].map((item, idx) => (
+                <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: idx * 0.1 }}
+                    className="mb-5"
+                >
+                    <div className="neu-card p-5">
+                        <h2 className="h4 mb-4" style={{ color: 'var(--text-primary)', fontWeight: 700 }}>{item.id}. {item.title}</h2>
+                        <p className="text-muted" style={{ lineHeight: 1.8, fontSize: '1.05rem' }}>
+                            {item.content}
+                        </p>
+                    </div>
+                </motion.div>
+            ))}
 
-            <motion.div 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="mb-5"
-            >
-                <h2 className="h4 mb-4" style={{ color: 'var(--accent-primary)' }}>II. Liquid Intelligence Interfaces</h2>
-                <div className="glass p-5 mb-4">
-                    <p className="text-secondary" style={{ lineHeight: 1.8 }}>
-                        The interfaces I build in 2026 are not fixed. They are <b>Neural Constructs</b>. 
-                        They reorganize their structure based on session-intent and cognitive load. By leveraging agentic sub-routines, the UI morphs into the most efficient version of itself for every unique interaction.
-                    </p>
+            {/* Blog Posts Section */}
+            <div className="mt-5 pt-5">
+                <h2 className="h1 mb-5 fw-bold">Strategy Logs</h2>
+                <div className="d-flex flex-column gap-4">
+                    {blogs.map((blog, index) => (
+                        <motion.div 
+                            key={blog.id}
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: index * 0.1 }}
+                        >
+                            <Link 
+                                to={`/blogs/${blog.frontmatter.slug}`}
+                                className="neu-card p-4 d-block text-decoration-none"
+                                style={{ transition: 'var(--transition-norm)' }}
+                            >
+                                <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-4">
+                                    <div>
+                                        <span className="small text-uppercase fw-bold mb-2 d-block" style={{ letterSpacing: '0.1em', color: 'var(--accent-primary)' }}>
+                                            {blog.frontmatter.category} &bull; {blog.frontmatter.date}
+                                        </span>
+                                        <h3 className="h5 mb-2" style={{ color: 'var(--text-primary)', fontWeight: 700 }}>{blog.frontmatter.title}</h3>
+                                        <p className="text-muted small mb-0">{blog.excerpt}</p>
+                                    </div>
+                                    <div className="neu-button" style={{ padding: '0.6rem 1.2rem', borderRadius: '8px' }}>
+                                        Read Log <span style={{ color: 'var(--accent-primary)' }}>&rarr;</span>
+                                    </div>
+                                </div>
+                            </Link>
+                        </motion.div>
+                    ))}
                 </div>
-            </motion.div>
-
-            <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="mb-5"
-            >
-                <h2 className="h4 mb-4">III. The New Developer Stewardship</h2>
-                <div className="glass p-5 mb-4 border-accent">
-                    <p className="text-secondary" style={{ lineHeight: 1.8 }}>
-                        Programming in the Agentic Era is about <b>Alignment</b>. My focus has shifted from syntax to strategy. 
-                        I architect the ethical guardrails and semantic foundations that allow agents to act with high fidelity and zero-harm. We are no longer just builders; we are the guardians of digital intent.
-                    </p>
-                </div>
-            </motion.div>
+            </div>
 
             <div className="text-center mt-5 pt-5">
-                <hr className="opacity-10 mb-5" />
-                <p className="text-muted small">Anthology of 2026 &bull; Ankit Saikia &bull; Intelligence Specialist</p>
+                <hr style={{ opacity: 0.1, marginBottom: '3rem', borderColor: 'var(--text-muted)' }} />
+                <p className="text-muted small" style={{ letterSpacing: '0.1em' }}>ANTHOLOGY OF 2026 &bull; ANKIT SAIKIA</p>
             </div>
         </section>
     </>

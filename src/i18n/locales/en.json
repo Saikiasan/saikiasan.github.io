@@ -2,39 +2,40 @@
   "common": {
     "nav": {
       "home": "Home",
-      "about": "Archive",
-      "projects": "Manifesto",
-      "careers": "Ventures",
-      "blogs": "Intelligence",
-      "contact": "Link Up"
+      "about": "The Vision",
+      "projects": "Ventures",
+      "careers": "Partnerships",
+      "blogs": "Insights",
+      "contact": "Consult"
     }
   },
   "home": {
     "hero": {
-      "title": "architecting <br/> <span class=\"text-gradient\">autonomy</span>",
-      "subtitle": "Navigating the Agentic Frontier. In 2026, we don't just write code; we orchestrate intelligence. I build systems that think, adapt, and evolve beyond the static web.",
-      "cta": "Explore the Manifesto",
-      "about_link": "The Origin Story"
+      "title": "founding the <br/> <span class=\"text-gradient\">digital vanguard</span>",
+      "subtitle": "Software development leader and creative business owner. I orchestrate high-impact digital ventures and engineering systems that define the next era of business intelligence.",
+      "cta": "View Ventures",
+      "about_link": "The Founder's Story"
     },
     "stats": {
-      "impact": "Systems & Intelligence",
-      "clients": "Agentic Partners",
-      "projects": "Neural Architectures",
-      "business": "Global Ecosystems"
+      "impact": "Business & Innovation",
+      "clients": "Strategic Partners",
+      "projects": "Global Ventures",
+      "business": "Growth metrics"
     },
     "services": {
-      "title": "Capabilities 2026",
-      "subtitle": "Engineering for a world where AI is the first-class citizen."
+      "title": "Strategic Capabilities",
+      "subtitle": "High-performance solutions designed to scale your vision and dominate your market."
     }
   },
   "about": {
-    "title": "the origin story",
-    "description": "I am <b>Ankit Saikia</b>, an architect of digital experiences in the age of Agentic workflows.",
-    "journey": "My journey began with pixels and syntax, but it evolved into a mission to bridge the gap between human intent and machine execution. Today, I focus on building the infrastructure for the next decade of computing."
+    "title": "The Founder's Vision",
+    "description": "I am <b>Ankit Saikia</b>, founder and creative lead driving the convergence of software engineering and business strategy.",
+    "journey": "With a decade of building at the intersection of technology and creativity, I specialize in founding systems that don't just solve problems—they create new opportunities for growth and innovation."
   },
   "intelligence": {
-     "title": "The Agentic Manifesto",
-     "tag": "Intelligence / 2026 Archive",
-     "subtitle": "Documenting the transition from static computation to autonomous intelligence partners."
+     "title": "Strategic Intelligence",
+     "tag": "Leadership / 2026 Insights",
+     "subtitle": "Analyzing the trends and technologies that empower modern businesses to lead."
   }
 }
+

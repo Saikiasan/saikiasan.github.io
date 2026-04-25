@@ -14,5 +14,9 @@ import "./src/i18n/config"
 
 // gatsby-browser.js
 export const onRouteUpdate = () => {
-  window.scrollTo(0, 0);
+  if (typeof window !== "undefined") {
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
+  }
 };

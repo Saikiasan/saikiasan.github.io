@@ -18,33 +18,34 @@ const stats = (t) => [
 const services = (t) => [
   {
     icon: <GiSpiderWeb />,
-    name: "Agentic Web Engines",
-    description: "Orchestrating autonomous web environments that learn and adapt to user intent in real-time.",
-    price: "999",
-    link: `https://wa.me/918257068226?text=Agentic%20Web`,
+    name: "Enterprise Ecosystems",
+    description: "Designing scalable, high-performance web infrastructures that serve as the backbone for modern businesses.",
+    price: "1,999",
+    link: `https://wa.me/918257068226?text=Enterprise%20Ecosystems`,
   },
   {
     icon: <AiOutlineOpenAI />,
-    name: "Neural Interfaces",
-    description: "Developing intelligent bridge-layers between human intuition and machine action.",
-    price: "4,499",
-    link: `https://wa.me/918257068226?text=Neural%20Interfaces`,
+    name: "Business Intelligence",
+    description: "Integrating advanced AI and automation to streamline operations and unlock data-driven decision making.",
+    price: "4,999",
+    link: `https://wa.me/918257068226?text=Business%20Intelligence`,
   },
   {
     icon: <IoLogoAndroid />,
-    name: "Autonomous Mobility",
-    description: "Deploying self-correcting agentic apps for the next generation of spatial computing.",
-    price: "3,199",
-    link: `https://wa.me/918257068226?text=Autonomous%20Mobility`,
+    name: "Custom Product Design",
+    description: "End-to-end software development from creative concept to market-ready mobile and web applications.",
+    price: "3,499",
+    link: `https://wa.me/918257068226?text=Custom%20Product%20Design`,
   },
   {
     icon: <BsGraphUpArrow />,
-    name: "Predictive Analytics",
-    description: "Leveraging 2026-grade data agents to forecast market shifts before they occur.",
-    price: "2,399",
-    link: `https://wa.me/918257068226?text=Predictive%20Analytics`,
+    name: "Growth Strategy",
+    description: "Strategic consulting to align your technical roadmap with long-term business growth and creative goals.",
+    price: "2,499",
+    link: `https://wa.me/918257068226?text=Growth%20Strategy`,
   },
 ]
+
 
 const IndexPage = () => {
   const { t } = useTranslation()

@@ -37,6 +37,17 @@ exports.createPages = async ({ graphql, actions }) => {
           id
         }
       }
+
+      blogs: allMarkdownRemark(
+        filter: { frontmatter: { type: { eq: "blog" } } }
+      ) {
+        nodes {
+          frontmatter {
+            slug
+          }
+          id
+        }
+      }
     }
   `)
 
@@ -77,6 +88,19 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/${node.frontmatter.slug}`,
       component: contentTemplate,
+      context: {
+        id: node.id,
+      },
+    })
+  })
+
+  // Create blog pages
+  const blogs = result.data.blogs.nodes
+  const blogTemplate = path.resolve(`./src/templates/blog-post.js`)
+  blogs.forEach(node => {
+    createPage({
+      path: `/blogs/${node.frontmatter.slug}`,
+      component: blogTemplate,
       context: {
         id: node.id,
       },

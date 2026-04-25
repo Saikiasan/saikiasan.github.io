@@ -9,7 +9,7 @@ const ProjectDetail = ({ data }) => {
   return (
     <Layout>
       <div className="container-fluid px-4" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <div className={s.container}>
+        <div className={`${s.container} neu-card p-5`}>
           <p className={s.pStack}>{markdownRemark.frontmatter.stack}</p>
           <h1 className={s.projectHeading}>
             {markdownRemark.frontmatter.title}

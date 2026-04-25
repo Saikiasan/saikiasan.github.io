@@ -1,23 +1,27 @@
 import React from "react"
 import Layout from "../components/Layout"
-import * as styles from "../styles/sass/about-page.module.scss"
+import Seo from "../components/Seo"
 
 export default function Careers() {
   return (
     <Layout>
-      <h1 className={styles.pageTitle}>Career opportunities</h1>
-      <div className="container-fluid text-light py-4" style={{ paddingTop: "12px", marginBottom: "12px" }}>
-        <div className="card col-lg-5 mx-auto border-1 rounded-4 border-danger">
-          <div className="card-body text-center">
-            <h2 className="h2" style={{ color: "var(--o-80)" }}>
-              We are not hiring at the moment. Please check back later.
-            </h2>
-            <p className='lead'>
-               We apologize for any inconvenience caused.
-            </p>
-          </div>
+      <div className="container-fluid px-4" style={{ maxWidth: '800px', margin: '0 auto', paddingTop: '150px' }}>
+        <div className="text-center mb-5">
+           <span className="small text-uppercase fw-bold mb-3 d-block" style={{ letterSpacing: '0.3em', color: 'var(--accent-primary)' }}>Opportunities</span>
+           <h1 className="display-4 fw-bold">Join the Agency</h1>
+        </div>
+        
+        <div className="neu-card p-5 text-center">
+          <h2 className="h4 mb-4" style={{ color: "var(--text-primary)", fontWeight: 700 }}>
+            No Active Transmissions
+          </h2>
+          <p className='text-muted lead mb-0'>
+             We are currently operating at peak capacity with our existing neural units. Please check back when new bandwidth becomes available.
+          </p>
         </div>
       </div>
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="Careers | Join the Agency" />
