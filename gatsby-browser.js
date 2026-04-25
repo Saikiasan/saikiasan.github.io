@@ -8,6 +8,8 @@
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.js"
+import "./src/styles/sass/global.scss"
+import "./src/i18n/config"
 
 
 // gatsby-browser.js

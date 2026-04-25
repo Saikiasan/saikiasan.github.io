@@ -1,19 +1,21 @@
-import React from 'react'
-import Layout from '../../components/Layout'
+import * as React from "react"
+import Layout from "../../components/Layout"
+import Seo from "../../components/Seo"
+import ClientOnly from "../../components/ClientOnly"
+import IntelligenceClientContent from "../../components/IntelligenceClientContent"
 
-export default function index() {
+const IntelligencePage = () => {
   return (
     <Layout>
-      <div className="container-fluid text-light" style={{ paddingTop: "12px", marginBottom: "12px" }}>
-        <h1 className="page-title">Blogs</h1>
-        <div className="card">
-          <div className="card-body">
-            <p className="lead">
-              Welcome to my blog! Here, I share my thoughts, experiences, and insights on various topics related to technology, programming, and more.
-            </p>
-          </div>
-        </div>
+      <div className="container-fluid px-4" style={{ maxWidth: '900px', margin: '120px auto' }}>
+        <ClientOnly>
+          <IntelligenceClientContent />
+        </ClientOnly>
       </div>
     </Layout>
   )
 }
+
+export const Head = () => <Seo title="Intelligence | The Agentic Manifesto" />
+
+export default IntelligencePage

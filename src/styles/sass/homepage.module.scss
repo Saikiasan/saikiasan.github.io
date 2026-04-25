@@ -1,360 +1,104 @@
-@use "colors" as c;
-@import 'functions';
-
-.section1 {
+.heroSection {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: calc(px-rem(12) * 4);
-
+  gap: var(--spacing-md);
+  
   @media (min-width: 1024px) {
+    padding-top: 10rem;
     display: grid;
-    grid-template-columns: repeat(6, 2fr);
-    grid-template-rows: px-rem(400) px-rem(120);
+    grid-template-columns: 7fr 3fr;
+    gap: var(--spacing-lg);
   }
 }
 
-.banner {
-  padding: 12px;
+.heroTitle {
+  margin-bottom: var(--spacing-sm);
+  text-transform: lowercase;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+  max-width: 800px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
   
   @media (min-width: 1024px) {
-    grid-column: 1 / 5;
-    grid-row: 1;
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
   
-  .banner-showcase-h1 {
-    font-family: "BebasBold";
-    color: var(--o-80);
+  .statNumber {
+    font-size: 2.5rem;
     font-weight: 800;
-    font-size: 3em; // Adjusted for mobile/tablet
-    line-height: 1.1;
-    
-    @media (min-width: 768px) {
-      font-size: 4em;
-    }
-  }
-
-  .banner-showcase-h2 {
-    font-family: "Archive";
-    color: var(--g-40);
-    font-size: 1.5em;
-    font-weight: 400;
-    
-    @media (min-width: 768px) {
-      font-size: 2em;
-    }
-  }
-}
-
-.banner-divider {
-  display: block; // Show on smaller screens
-  border-color: var(--d-30);
-  margin: 16px 0;
-  
-  @media (min-width: 1024px) {
-    display: none; // Match old PC style where divider wasn't explicit
-  }
-}
-
-.banner-description {
-  color: var(--g-50);
-  font-size: 16px;
-  line-height: 1.5;
-  font-family: "MonoLight";
-  margin-bottom: 24px;
-  
-  &:last-child {
-    margin-bottom: 0;
+    color: var(--accent-primary);
+    font-family: 'Outfit', sans-serif;
   }
   
-  @media (max-width: 1023px) {
-    color: var(--o-80); // Previously mobile description color
-  }
-}
-
-.profile-img {
-  @media (min-width: 1024px) {
-    grid-column: 5 / span 2;
-    grid-row: 1;
-  }
-}
-
-.profile-description {
-  color: var(--g-50);
-  font-size: 16px;
-  line-height: 1.5;
-  font-family: "MonoLight";
-}
-
-.banner-skill-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  border: 4px solid var(--d-10);
-  padding: 12px;
-  border-radius: 12px;
-  
-  @media (min-width: 1024px) {
-    grid-column: 1 / 7;
-    grid-row: 2;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-.banner-skill-card {
-  flex: 1 1 calc(50% - 12px); // Mobile/Tablet layout
-  @media (min-width: 1024px) {
-    flex: none; // Grid item for PC
-  }
-  
-  .body {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 12px;
-    height: 100%;
-    
-    @media (min-width: 1024px) {
-      padding: calc(12px * 3);
-      position: relative;
-    }
-    
-    .banner-skill-name {
-      font-size: 14px;
-      font-family: "IntroCd";
-      text-wrap: nowrap;
-      text-transform: uppercase;
-      color: var(--g-50);
-      
-      @media (min-width: 1024px) {
-        font-family: "MonoBold";
-        font-size: 12px;
-        position: absolute;
-        bottom: 24px;
-      }
-    }
-    
-    .banner-skill-data {
-      font-size: 3rem;
-      font-weight: 800;
-      font-family: "Archive";
-      color: var(--o-65);
-      
-      @media (min-width: 1024px) {
-        font-size: 2.5rem;
-        font-family: "MonoBold";
-        position: absolute;
-        top: 24px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-  }
-}
-
-.banner-know-more-link-container {
-  flex: 1 1 100%; // Mobile default
-  padding: 12px;
-  @media (min-width: 1024px) {
-    flex: none;
-    padding: 0;
-  }
-}
-
-.banner-know-more-card-body {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  height: 100%;
-
-  .banner-know-more-icon-span {
-    background: var(--d-06);
-    border-radius: 50%;
-    padding: 12px;
-    border: 2px solid var(--d-30);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    
-    @media (min-width: 1024px) {
-      background: transparent;
-      border: none;
-      padding: 0;
-      border-radius: 0;
-    }
-  }
-
-  .banner-know-more-icon {
-    --s: 1.5rem;
-    color: var(--o-65);
-    width: var(--s);
-    height: var(--s);
-    
-    @media (min-width: 1024px) {
-      --s: 30px;
-    }
-  }
-
-  .banner-know-more-link {
-    font-family: "MonoBold";
+  .statLabel {
+    font-size: 0.8rem;
     text-transform: uppercase;
-    font-size: 20px;
-    color: var(--g-40);
-    
-    @media (min-width: 1024px) {
-      font-size: 18px;
-    }
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
   }
 }
 
-// Services Section
-.service {
-  border: 4px solid var(--d-10); // Mobile border
-  padding: 12px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: stretch;
-  justify-content: start;
-  
-  @media (min-width: 1024px) {
-    border-width: 2px; // PC border
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  
-  .card {
-    background: var(--d-10);
-    color: var(--o-95);
-    border-radius: 12px;
-    padding: 24px;
-    
-    @media (min-width: 1024px) {
-      padding: calc(12px * 3);
-    }
-  }
-}
-
-.service-section-title {
-  text-transform: uppercase;
-  color: var(--o-80);
-  font-family: "Archive";
-  margin: 0;
-}
-
-.services-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: stretch;
-  justify-content: start;
-  flex: 1 1 100%;
-}
-
-.service-card {
-  flex: 1 1 100%;
-  display: flex;
-  flex-direction: column;
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
   
   @media (min-width: 768px) {
-    flex: 1 1 calc(50% - 12px);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.service-flex-top {
+.serviceCard {
+  padding: var(--spacing-md);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: var(--spacing-sm);
   
-  @media (min-width: 1024px) {
-    flex-direction: row;
+  .serviceIcon {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .serviceName {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .serviceText {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+  
+  .serviceFooter {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-}
-
-.service-flex {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.service-icon {
-  --s: 4rem;
-  font-size: 2.4rem;
-  color: var(--o-65);
-  padding: 12px;
-  background: var(--d-10);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  height: var(--s);
-  width: var(--s);
-  border-radius: 12px;
-  border: 2px solid var(--d-30);
-  
-  @media (min-width: 1024px) {
-    border: none;
-    background: transparent;
-    padding: 0;
-    --s: auto;
-    height: auto;
-    width: auto;
-    display: block; // Previously it was just an icon
-  }
-}
-
-.react-icons {
-  --s: 2.5rem;
-  height: var(--s);
-  width: var(--s);
-}
-
-.service-link {
-  display: inline-flex;
-  text-decoration: none;
-  justify-content: center;
-  align-items: center;
-  background: var(--o-60);
-  padding: 12px;
-  border-radius: 12px;
-}
-
-.service-link-span {
-  font-family: "Archive";
-  color: var(--d-06);
-  text-transform: uppercase;
-  font-size: 1.2rem;
-}
-
-.service-description {
-  color: var(--g-50);
-  font-size: 16px;
-  line-height: 1.5;
-  font-family: "MonoLight";
-  flex-grow: 1;
-}
-
-.service-price {
-  color: var(--o-80);
-  font-family: "IntroCd";
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  text-transform: uppercase;
-  margin-top: 16px;
-  
-  @media (min-width: 1024px) {
-    font-family: "BebasBold";
-    font-size: 1.8rem;
-    justify-content: flex-end;
-    margin-top: 0;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
   }
 }

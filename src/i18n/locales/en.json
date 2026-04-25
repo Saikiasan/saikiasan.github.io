@@ -1,0 +1,40 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "about": "Archive",
+      "projects": "Manifesto",
+      "careers": "Ventures",
+      "blogs": "Intelligence",
+      "contact": "Link Up"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "architecting <br/> <span class=\"text-gradient\">autonomy</span>",
+      "subtitle": "Navigating the Agentic Frontier. In 2026, we don't just write code; we orchestrate intelligence. I build systems that think, adapt, and evolve beyond the static web.",
+      "cta": "Explore the Manifesto",
+      "about_link": "The Origin Story"
+    },
+    "stats": {
+      "impact": "Systems & Intelligence",
+      "clients": "Agentic Partners",
+      "projects": "Neural Architectures",
+      "business": "Global Ecosystems"
+    },
+    "services": {
+      "title": "Capabilities 2026",
+      "subtitle": "Engineering for a world where AI is the first-class citizen."
+    }
+  },
+  "about": {
+    "title": "the origin story",
+    "description": "I am <b>Ankit Saikia</b>, an architect of digital experiences in the age of Agentic workflows.",
+    "journey": "My journey began with pixels and syntax, but it evolved into a mission to bridge the gap between human intent and machine execution. Today, I focus on building the infrastructure for the next decade of computing."
+  },
+  "intelligence": {
+     "title": "The Agentic Manifesto",
+     "tag": "Intelligence / 2026 Archive",
+     "subtitle": "Documenting the transition from static computation to autonomous intelligence partners."
+  }
+}

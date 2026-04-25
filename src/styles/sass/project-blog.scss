@@ -1,0 +1,42 @@
+code {
+    background: var(--bg-secondary);
+    color: var(--accent-primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Inter', monospace;
+    border: 1px solid var(--border-color);
+}
+
+p {
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+blockquote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-primary);
+    border-left: 4px solid var(--accent-primary);
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    background: var(--bg-secondary);
+    border-radius: 0 8px 8px 0;
+}
+
+ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    
+    li {
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+    }
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}

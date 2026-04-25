@@ -3,8 +3,9 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./Navbar"
 import Footer from "./Footer"
-import "../styles/style-25.css"
-import "../styles/utils-25.css"
+import Background3D from "./Background3D"
+import ClientOnly from "./ClientOnly"
+import { useTranslation } from "react-i18next"
 import { useMediaQuery } from "react-responsive"
 
 const Layout = ({ children }) => {
@@ -20,38 +21,18 @@ const Layout = ({ children }) => {
   `)
   const isMobile = useMediaQuery({ maxWidth: 768 })
   return (
-    <>
-      <div class="preloader">
-        {/* <img src="" alt="Logo" className="logo"/> */}
-      </div>
+    <div style={{ position: 'relative' }}>
+      <ClientOnly>
+        <Background3D />
+      </ClientOnly>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      {isMobile ? (
-        <svg>
-          <defs>
-            <filter id="gooeyness">
-              <feGaussianBlur
-                in="SourceGraphic"
-                stdDeviation="2.2"
-                result="blur"
-              />
-              <feColorMatrix
-                in="blur"
-                mode="matrix"
-                values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -10"
-                result="gooeyness"
-              />
-              <feComposite in="SourceGraphic" in2="gooeyness" operator="atop" />
-            </filter>
-          </defs>
-        </svg>
-      ) : (
-        ""
-      )}
-
-      <main>{children}</main>
+      
+      <main className="animate-fade-in" style={{ minHeight: '80vh', position: 'relative', zIndex: 1 }}>
+        {children}
+      </main>
 
       <Footer siteAuthor={data.site.siteMetadata?.author || `Saikia`} />
-    </>
+    </div>
   )
 }
 

@@ -1,0 +1,24 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "about": "Archive",
+      "projects": "Manifesto",
+      "careers": "Ventures",
+      "blogs": "Intelligence",
+      "contact": "Link Up"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "architecting <br/> <span class=\"text-gradient\">autonomy</span>",
+      "subtitle": "Agentic Frontier ত যাত্ৰা। ২০২৬ চনত আমি কেৱল ক'ড নিলিখন; আমি বুদ্ধিমত্তাক পৰিচালনা কৰো। মই এনেকুৱা চিষ্টেম নিৰ্মাণ কৰো যিয়ে চিন্তা কৰে, খাপ খুৱায় আৰু এই স্থিতিশীল ৱেবৰ সিপাৰে বিকশিত হয়।",
+      "cta": "Manifesto পৰীক্ষা কৰক",
+      "about_link": "মোৰ কাহিনী"
+    }
+  },
+  "about": {
+    "title": "মোৰ কাহিনী",
+    "description": "মই <b>অংকিত শইকীয়া</b>, এজন ডেভেলপাৰ যিয়ে ২০২৬ চনৰ AI-প্ৰধান পৃথিৱীত নতুন অভিজ্ঞতা নিৰ্মাণ কৰে।"
+  }
+}
