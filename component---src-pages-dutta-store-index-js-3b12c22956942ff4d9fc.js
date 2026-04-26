@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksaikiacodes_portfolio=self.webpackChunksaikiacodes_portfolio||[]).push([[126],{1522:function(e,a,t){t.r(a);var i=t(6540),n=t(1679);a.default=function(){return i.createElement(n.A,null,i.createElement("div",{className:"container-fluid",style:{margin:"4rem 0px"}},"There are no items in here at this moment, please come back later."))}}}]);
+//# sourceMappingURL=component---src-pages-dutta-store-index-js-3b12c22956942ff4d9fc.js.map
