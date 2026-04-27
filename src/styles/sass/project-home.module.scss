@@ -26,6 +26,13 @@
   box-shadow: var(--nm-outset);
   border: 1px solid var(--border-color);
   transition: var(--transition-norm);
+
+  @media (max-width: 768px) {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: var(--spacing-sm) 0;
+  }
   
   &:hover {
     box-shadow: var(--nm-inset);

@@ -1,0 +1,111 @@
+@import './_colors.scss';
+
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.controllerContainer {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  box-shadow: var(--nm-outset);
+  margin-bottom: 2rem;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    border: 2px dashed var(--accent-primary);
+    opacity: 0.3;
+    animation: rotate 10s linear infinite;
+  }
+}
+
+.controllerIcon {
+  font-size: 4rem;
+  color: var(--accent-primary);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+}
+
+.loadingTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loadingText {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.progressBar {
+  width: 200px;
+  height: 4px;
+  background: var(--nm-inset-sm);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 10px var(--accent-primary);
+  border-radius: 10px;
+}
+
+.statusMessage {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .controllerContainer {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .controllerIcon {
+    font-size: 3rem;
+  }
+  
+  .loadingText {
+    font-size: 1.2rem;
+  }
+  
+  .progressBar {
+    width: 150px;
+  }
+}

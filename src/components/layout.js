@@ -7,8 +7,11 @@ import Background3D from "./Background3D"
 import ClientOnly from "./ClientOnly"
 import { useTranslation } from "react-i18next"
 import { useMediaQuery } from "react-responsive"
+import JokerLoader from "./JokerLoader"
+import { useNavigation } from "../context/NavigationContext"
 
 const Layout = ({ children }) => {
+  const { isNavigating } = useNavigation()
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -22,6 +25,7 @@ const Layout = ({ children }) => {
   const isMobile = useMediaQuery({ maxWidth: 768 })
   return (
     <div style={{ position: 'relative' }}>
+      <JokerLoader isNavigating={isNavigating} />
       <ClientOnly>
         <Background3D />
       </ClientOnly>

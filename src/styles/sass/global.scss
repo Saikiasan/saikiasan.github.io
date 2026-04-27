@@ -97,12 +97,28 @@ a {
   border-radius: 20px;
   box-shadow: var(--nm-outset);
   border: 1px solid var(--border-color);
+
+  @media (max-width: 768px) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 
 .neu-card-inset {
   background: var(--bg-primary);
   border-radius: 20px;
   box-shadow: var(--nm-inset);
+
+  @media (max-width: 768px) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
 }
 
 .neu-button {
@@ -119,6 +135,14 @@ a {
   cursor: pointer;
   font-weight: 600;
   
+  @media (max-width: 768px) {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0.5rem 0 !important;
+    justify-content: flex-start !important;
+  }
+
   &:hover {
     box-shadow: var(--nm-inset-sm);
     transform: scale(0.98);
@@ -211,4 +235,29 @@ a {
 
 [data-theme='dark'] .theme-map {
   filter: grayscale(1) invert(0.9);
+}
+
+/* Navbar Scroll Animations */
+.navbar-hidden {
+  transform: translateY(-120%) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.navbar-visible {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+/* Navbar Solid Background Fix */
+.navbar-solid {
+  background: var(--bg-primary) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  @media (max-width: 768px) {
+    border-bottom: 1px solid var(--border-color) !important;
+    border-radius: 0 !important;
+  }
 }

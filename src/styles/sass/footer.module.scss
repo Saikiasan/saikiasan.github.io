@@ -122,6 +122,12 @@
     align-items: center;
     transition: all 300ms ease-in-out;
 
+    @media (max-width: 768px) {
+        background: transparent;
+        border: none;
+        padding: 12px 0;
+    }
+
     @media (min-width: 1024px) {
         flex: none;
         display: block; 
@@ -220,6 +226,10 @@
 .newsLetterCard {
     padding: 24px;
 
+    @media (max-width: 768px) {
+        padding: 24px 0;
+    }
+
     @media (min-width: 768px) {
         padding: 36px;
     }
@@ -300,6 +310,10 @@
 
 .navigationCard {
     padding: 12px;
+
+    @media (max-width: 768px) {
+        padding: 12px 0;
+    }
 
     @media (min-width: 768px) {
         padding: 20px;

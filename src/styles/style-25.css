@@ -176,6 +176,12 @@ main {
     background: var(--d-10);
     color: var(--o-95);
     border-radius: 12px;
+
+    @media (max-width: 768px) {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+    }
 }
 
 .btn {

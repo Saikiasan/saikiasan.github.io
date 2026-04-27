@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { useMediaQuery } from "react-responsive"
 import { useTranslation } from "react-i18next"
 import { FiSun, FiMoon } from "react-icons/fi"
+import { FaGamepad } from "react-icons/fa"
 
 const Header = ({ siteTitle }) => {
   const { t, i18n } = useTranslation()
@@ -11,6 +12,8 @@ const Header = ({ siteTitle }) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [theme, setTheme] = useState('dark')
+  const [isVisible, setIsVisible] = useState(true)
+  const lastScrollY = React.useRef(0)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'dark'
@@ -22,6 +25,7 @@ const Header = ({ siteTitle }) => {
     { t: t('common.nav.home'), u: "/" },
     { t: t('common.nav.about'), u: "/about" },
     { t: t('common.nav.projects'), u: "/projects" },
+    { t: 'Game Dev', u: "/game-dev", icon: <FaGamepad /> },
     { t: t('common.nav.careers'), u: "/careers" },
     { t: t('common.nav.blogs'), u: "/blogs" },
     { t: t('common.nav.contact'), u: "/contact" },
@@ -29,9 +33,23 @@ const Header = ({ siteTitle }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      const currentScrollY = window.scrollY
+      
+      // Add shadow after scrolling 20px
+      setIsScrolled(currentScrollY > 20)
+      
+      // Visibility Logic: Hide if scrolling down past 150px, show if scrolling up
+      if (currentScrollY > lastScrollY.current && currentScrollY > 150) {
+        setIsVisible(false)
+        setIsOpen(false) // Close mobile menu if scrolling down
+      } else {
+        setIsVisible(true)
+      }
+      
+      lastScrollY.current = currentScrollY
     }
-    window.addEventListener("scroll", handleScroll)
+    
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -49,21 +67,23 @@ const Header = ({ siteTitle }) => {
 
   return (
     <nav
-      className={`fixed-top w-100 d-flex justify-content-center px-3 py-3`}
+      className={`fixed-top w-100 d-flex justify-content-center ${isVisible ? 'navbar-visible' : 'navbar-hidden'} ${isMobile ? 'p-0' : 'px-3 py-3'}`}
       style={{
         zIndex: 1000,
-        transition: 'var(--transition-slow)',
+        transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+        background: (isMobile || isScrolled || isOpen) ? 'var(--bg-primary)' : 'transparent',
       }}
     >
       <div
-        className="neu-card d-flex align-items-center justify-content-between px-4 py-2"
+        className={`navbar-solid d-flex align-items-center justify-content-between px-4 py-2 ${!isMobile ? 'neu-card' : ''}`}
         style={{
           width: '100%',
           maxWidth: '1200px',
           height: '64px',
           background: 'var(--bg-primary)',
-          boxShadow: isScrolled ? 'var(--nm-outset)' : 'none',
+          boxShadow: (isScrolled || isOpen) ? 'var(--nm-outset)' : 'none',
           transition: 'var(--transition-norm)',
+          borderBottom: (isMobile || isOpen) ? '1px solid var(--border-color)' : 'none'
         }}
       >
         <Link to="/" className="navbar-brand m-0" style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.04em', color: 'var(--text-primary)' }}>
@@ -100,9 +120,9 @@ const Header = ({ siteTitle }) => {
             
             {isOpen && (
               <div 
-                className="neu-card position-fixed start-0 w-100 px-4 py-5"
+                className="navbar-solid position-fixed start-0 w-100 px-4 py-5"
                 style={{ 
-                  top: '84px', 
+                  top: '64px', 
                   zIndex: 999,
                   display: 'flex',
                   flexDirection: 'column',
@@ -116,10 +136,11 @@ const Header = ({ siteTitle }) => {
                     key={index}
                     to={link.u}
                     onClick={() => setIsOpen(false)}
-                    className="text-capitalize h5 m-0"
+                    className="text-capitalize h5 m-0 d-flex align-items-center gap-3"
                     activeStyle={{ color: 'var(--accent-primary)' }}
                     style={{ color: 'var(--text-secondary)' }}
                   >
+                    {link.icon && <span style={{ color: 'var(--accent-primary)' }}>{link.icon}</span>}
                     {link.t}
                   </Link>
                 ))}
@@ -133,10 +154,11 @@ const Header = ({ siteTitle }) => {
                 <Link
                   key={index}
                   to={link.u}
-                  className="text-capitalize"
+                  className="text-capitalize d-flex align-items-center gap-2"
                   style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}
                   activeStyle={{ color: 'var(--accent-primary)' }}
                 >
+                  {link.icon && <span style={{ color: 'var(--accent-primary)', fontSize: '1rem' }}>{link.icon}</span>}
                   {link.t}
                 </Link>
               ))}
