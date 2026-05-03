@@ -19,5 +19,12 @@ service cloud.firestore {
       allow read, delete: if isAdmin(); // Only admin can view/archive applications
       allow update: if false; // Applications shouldn't be edited after submission
     }
+
+    // Contacts collection
+    match /contacts/{contactId} {
+      allow create: if true; // Anyone can submit a contact message
+      allow read, delete: if isAdmin(); // Only admin can view/delete
+      allow update: if false; // Messages can't be edited after submission
+    }
   }
 }
